@@ -1,0 +1,2572 @@
+
+<html>
+<head>
+<title>Line Graph</title>
+<style>
+    .list-item {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+        display: flex;
+        align-items: center;
+    }
+    .list-container {
+        max-height: 730px; 
+        overflow-y: auto;
+        float: left; 
+        width: 17%; 
+    }
+    .graphs {
+        width: 80%; 
+        float: right; 
+       
+    }
+    .graph2{
+      margin-top: 20px; 
+      margin-left: 70px;
+    }
+    .container:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+      .tooltip {
+        position: absolute;
+        padding: 8px;
+        border-radius: 8px;
+        pointer-events: none;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+    }
+
+</style>
+<script src="https://d3js.org/d3.v6.min.js"></script>
+</head>
+<body>
+<div class="container">
+  <div style="padding-left: 10px;">
+    <h4>Select London Boroughs</h4>
+  </div>
+    <div class="list-container">
+    </div>
+    <div class="graphs">
+     <div style="display: flex;">
+         <div class="graph1">
+          <svg></svg>
+        </div>
+         <div class="graph2">
+          <svg></svg>
+        </div>
+     </div>
+          <div style="display: flex;">
+            <div class="graph3">
+          <svg></svg>
+        </div>
+        <div class="LoremText">
+       
+        </div>
+          </div>
+    </div>
+</div>
+
+<script>
+const jsonData = [
+    {
+        "id": 0,
+        "area": "barking and dagenham",
+        "population": 62000,
+        "Mean £": 16200,
+        "Median £": 15100,
+        "year": 1999,
+        "area1": "barking and dagenham",
+        "average_price": 64532,
+        "houses_sold": 177,
+        "Station": "Upney",
+        "color": "#4c141d"
+    },
+    {
+        "id": 1,
+        "area": "barnet",
+        "population": 161000,
+        "Mean £": 26800,
+        "Median £": 18700,
+        "year": 1999,
+        "area1": "barnet",
+        "average_price": 126189,
+        "houses_sold": 417,
+        "Station": "Woodside Park",
+        "color": "#4d778c"
+    },
+    {
+        "id": 2,
+        "area": "bexley",
+        "population": 105000,
+        "Mean £": 20500,
+        "Median £": 17200,
+        "year": 1999,
+        "area1": "bexley",
+        "average_price": 83064,
+        "houses_sold": 292,
+        "Station": "",
+        "color": "#44a682"
+    },
+    {
+        "id": 3,
+        "area": "brent",
+        "population": 122000,
+        "Mean £": 20000,
+        "Median £": 16500,
+        "year": 1999,
+        "area1": "brent",
+        "average_price": 105461,
+        "houses_sold": 261,
+        "Station": "Willesden Junction",
+        "color": "#859a41"
+    },
+    {
+        "id": 4,
+        "area": "bromley",
+        "population": 163000,
+        "Mean £": 25100,
+        "Median £": 18500,
+        "year": 1999,
+        "area1": "bromley",
+        "average_price": 112544,
+        "houses_sold": 406,
+        "Station": "",
+        "color": "#ec821f"
+    },
+    {
+        "id": 5,
+        "area": "camden",
+        "population": 85000,
+        "Mean £": 39000,
+        "Median £": 20500,
+        "year": 1999,
+        "area1": "camden",
+        "average_price": 170961,
+        "houses_sold": 208,
+        "Station": "West Hampstead",
+        "color": "#435bf6"
+    },
+    {
+        "id": 6,
+        "area": "city of london",
+        "population": 10000,
+        "Mean £": 109800,
+        "Median £": 40400,
+        "year": 1999,
+        "area1": "croydon",
+        "average_price": 91179,
+        "houses_sold": 442,
+        "Station": "",
+        "color": "#a45360"
+    },
+    {
+        "id": 7,
+        "area": "croydon",
+        "population": 152000,
+        "Mean £": 21500,
+        "Median £": 16700,
+        "year": 1999,
+        "area1": "ealing",
+        "average_price": 112914,
+        "houses_sold": 371,
+        "Station": "West Acton",
+        "color": "#a841a4"
+    },
+    {
+        "id": 8,
+        "area": "ealing",
+        "population": 130000,
+        "Mean £": 22800,
+        "Median £": 16400,
+        "year": 1999,
+        "area1": "enfield",
+        "average_price": 94831,
+        "houses_sold": 399,
+        "Station": "Southgate",
+        "color": "#4c1838"
+    },
+    {
+        "id": 9,
+        "area": "enfield",
+        "population": 124000,
+        "Mean £": 21500,
+        "Median £": 16100,
+        "year": 1999,
+        "area1": "england",
+        "average_price": 65766,
+        "houses_sold": 59989,
+        "Station": "",
+        "color": "#55000b"
+    },
+    {
+        "id": 10,
+        "area": "greenwich",
+        "population": 86000,
+        "Mean £": 20700,
+        "Median £": 16600,
+        "year": 1999,
+        "area1": "greenwich",
+        "average_price": 86685,
+        "houses_sold": 270,
+        "Station": "North Greenwich",
+        "color": "#aad387"
+    },
+    {
+        "id": 11,
+        "area": "hackney",
+        "population": 79000,
+        "Mean £": 18700,
+        "Median £": 14400,
+        "year": 1999,
+        "area1": "hackney",
+        "average_price": 99489,
+        "houses_sold": 196,
+        "Station": "Manor House",
+        "color": "#ef499e"
+    },
+    {
+        "id": 12,
+        "area": "hammersmith and fulham",
+        "population": 72000,
+        "Mean £": 34900,
+        "Median £": 19900,
+        "year": 1999,
+        "area1": "hammersmith and fulham",
+        "average_price": 178179,
+        "houses_sold": 198,
+        "Station": "Wood Lane",
+        "color": "#45483a"
+    },
+    {
+        "id": 13,
+        "area": "haringey",
+        "population": 124000,
+        "Mean £": 20600,
+        "Median £": 15000,
+        "year": 1999,
+        "area1": "haringey",
+        "average_price": 107523,
+        "houses_sold": 229,
+        "Station": "Wood Green",
+        "color": "#6ddac0"
+    },
+    {
+        "id": 14,
+        "area": "harrow",
+        "population": 96000,
+        "Mean £": 23300,
+        "Median £": 16600,
+        "year": 1999,
+        "area1": "harrow",
+        "average_price": 118611,
+        "houses_sold": 210,
+        "Station": "West Harrow",
+        "color": "#e2c413"
+    },
+    {
+        "id": 15,
+        "area": "havering",
+        "population": 105000,
+        "Mean £": 20400,
+        "Median £": 14800,
+        "year": 1999,
+        "area1": "havering",
+        "average_price": 89521,
+        "houses_sold": 222,
+        "Station": "Upminster Bridge",
+        "color": "#d189a6"
+    },
+    {
+        "id": 16,
+        "area": "hillingdon",
+        "population": 111000,
+        "Mean £": 21700,
+        "Median £": 16100,
+        "year": 1999,
+        "area1": "hillingdon",
+        "average_price": 102147,
+        "houses_sold": 335,
+        "Station": "West Ruislip",
+        "color": "#e43a31"
+    },
+    {
+        "id": 17,
+        "area": "hounslow",
+        "population": 106000,
+        "Mean £": 20900,
+        "Median £": 15200,
+        "year": 1999,
+        "area1": "hounslow",
+        "average_price": 101234,
+        "houses_sold": 241,
+        "Station": "Turnham Green",
+        "color": "#c65834"
+    },
+    {
+        "id": 18,
+        "area": "islington",
+        "population": 69000,
+        "Mean £": 31100,
+        "Median £": 19900,
+        "year": 1999,
+        "area1": "islington",
+        "average_price": 135270,
+        "houses_sold": 220,
+        "Station": "Tufnell Park",
+        "color": "#69fd46"
+    },
+    {
+        "id": 19,
+        "area": "kensington and chelsea",
+        "population": 73000,
+        "Mean £": 58200,
+        "Median £": 18200,
+        "year": 1999,
+        "area1": "kensington and chelsea",
+        "average_price": 278269,
+        "houses_sold": 292,
+        "Station": "West Brompton",
+        "color": "#c96822"
+    },
+    {
+        "id": 20,
+        "area": "kingston-upon-thames",
+        "population": 71000,
+        "Mean £": 28400,
+        "Median £": 20900,
+        "year": 1999,
+        "area1": "kingston upon thames",
+        "average_price": 119773,
+        "houses_sold": 215,
+        "Station": "",
+        "color": "#b663b0"
+    },
+    {
+        "id": 21,
+        "area": "lambeth",
+        "population": 131000,
+        "Mean £": 20700,
+        "Median £": 15400,
+        "year": 1999,
+        "area1": "lambeth",
+        "average_price": 106119,
+        "houses_sold": 322,
+        "Station": "Waterloo",
+        "color": "#75a892"
+    },
+    {
+        "id": 22,
+        "area": "lewisham",
+        "population": 106000,
+        "Mean £": 18200,
+        "Median £": 14900,
+        "year": 1999,
+        "area1": "lewisham",
+        "average_price": 77528,
+        "houses_sold": 283,
+        "Station": "",
+        "color": "#bf6f1b"
+    },
+    {
+        "id": 23,
+        "area": "merton",
+        "population": 92000,
+        "Mean £": 27900,
+        "Median £": 19100,
+        "year": 1999,
+        "area1": "merton",
+        "average_price": 109274,
+        "houses_sold": 268,
+        "Station": "Wimbledon Park",
+        "color": "#224175"
+    },
+    {
+        "id": 24,
+        "area": "newham",
+        "population": 80000,
+        "Mean £": 15800,
+        "Median £": 13300,
+        "year": 1999,
+        "area1": "newham",
+        "average_price": 69439,
+        "houses_sold": 251,
+        "Station": "West Ham",
+        "color": "#f053ad"
+    },
+    {
+        "id": 25,
+        "area": "redbridge",
+        "population": 96000,
+        "Mean £": 21700,
+        "Median £": 17100,
+        "year": 1999,
+        "area1": "redbridge",
+        "average_price": 96338,
+        "houses_sold": 297,
+        "Station": "Woodford",
+        "color": "#9ffb9f"
+    },
+    {
+        "id": 26,
+        "area": "richmond-upon-thames",
+        "population": 86000,
+        "Mean £": 37300,
+        "Median £": 20900,
+        "year": 1999,
+        "area1": "richmond upon thames",
+        "average_price": 174889,
+        "houses_sold": 302,
+        "Station": "",
+        "color": "#747181"
+    },
+    {
+        "id": 27,
+        "area": "southwark",
+        "population": 114000,
+        "Mean £": 20400,
+        "Median £": 14600,
+        "year": 1999,
+        "area1": "southwark",
+        "average_price": 100115,
+        "houses_sold": 284,
+        "Station": "Southwark",
+        "color": "#70e700"
+    },
+    {
+        "id": 28,
+        "area": "sutton",
+        "population": 93000,
+        "Mean £": 21000,
+        "Median £": 16400,
+        "year": 1999,
+        "area1": "sutton",
+        "average_price": 94888,
+        "houses_sold": 276,
+        "Station": "",
+        "color": "#e01192"
+    },
+    {
+        "id": 29,
+        "area": "tower hamlets",
+        "population": 59000,
+        "Mean £": 22900,
+        "Median £": 14200,
+        "year": 1999,
+        "area1": "tower hamlets",
+        "average_price": 107464,
+        "houses_sold": 273,
+        "Station": "Whitechapel",
+        "color": "#2f8a8d"
+    },
+    {
+        "id": 30,
+        "area": "waltham forest",
+        "population": 91000,
+        "Mean £": 18500,
+        "Median £": 15000,
+        "year": 1999,
+        "area1": "waltham forest",
+        "average_price": 78117,
+        "houses_sold": 307,
+        "Station": "Walthamstow Central",
+        "color": "#ba9dd1"
+    },
+    {
+        "id": 31,
+        "area": "wandsworth",
+        "population": 144000,
+        "Mean £": 29300,
+        "Median £": 18100,
+        "year": 1999,
+        "area1": "wandsworth",
+        "average_price": 126280,
+        "houses_sold": 452,
+        "Station": "Tooting Broadway",
+        "color": "#84ffee"
+    },
+    {
+        "id": 32,
+        "area": "westminster",
+        "population": 96000,
+        "Mean £": 46400,
+        "Median £": 17300,
+        "year": 1999,
+        "area1": "westminster",
+        "average_price": 188601,
+        "houses_sold": 353,
+        "Station": "",
+        "color": "#c6069c"
+    },
+    {
+        "id": 33,
+        "area": "barking and dagenham",
+        "population": 67000,
+        "Mean £": 19100,
+        "Median £": 17000,
+        "year": 2002,
+        "area1": "barking and dagenham",
+        "average_price": 98713,
+        "houses_sold": 216,
+        "Station": "Upney",
+        "color": "#4c141d"
+    },
+    {
+        "id": 34,
+        "area": "barnet",
+        "population": 150000,
+        "Mean £": 32300,
+        "Median £": 19700,
+        "year": 2002,
+        "area1": "barnet",
+        "average_price": 203249,
+        "houses_sold": 501,
+        "Station": "Woodside Park",
+        "color": "#4d778c"
+    },
+    {
+        "id": 35,
+        "area": "bexley",
+        "population": 114000,
+        "Mean £": 21500,
+        "Median £": 17800,
+        "year": 2002,
+        "area1": "bexley",
+        "average_price": 124283,
+        "houses_sold": 319,
+        "Station": "",
+        "color": "#44a682"
+    },
+    {
+        "id": 36,
+        "area": "brent",
+        "population": 116000,
+        "Mean £": 21700,
+        "Median £": 16400,
+        "year": 2002,
+        "area1": "brent",
+        "average_price": 168671,
+        "houses_sold": 315,
+        "Station": "Willesden Junction",
+        "color": "#859a41"
+    },
+    {
+        "id": 37,
+        "area": "bromley",
+        "population": 160000,
+        "Mean £": 27700,
+        "Median £": 20100,
+        "year": 2002,
+        "area1": "bromley",
+        "average_price": 173150,
+        "houses_sold": 445,
+        "Station": "",
+        "color": "#ec821f"
+    },
+    {
+        "id": 38,
+        "area": "camden",
+        "population": 96000,
+        "Mean £": 43000,
+        "Median £": 21700,
+        "year": 2002,
+        "area1": "camden",
+        "average_price": 290461,
+        "houses_sold": 237,
+        "Station": "West Hampstead",
+        "color": "#435bf6"
+    },
+    {
+        "id": 39,
+        "area": "city of london",
+        "population": 11000,
+        "Mean £": 78700,
+        "Median £": 37000,
+        "year": 2002,
+        "area1": "croydon",
+        "average_price": 143108,
+        "houses_sold": 455,
+        "Station": "",
+        "color": "#a45360"
+    },
+    {
+        "id": 40,
+        "area": "croydon",
+        "population": 166000,
+        "Mean £": 23400,
+        "Median £": 18000,
+        "year": 2002,
+        "area1": "ealing",
+        "average_price": 178154,
+        "houses_sold": 412,
+        "Station": "West Acton",
+        "color": "#a841a4"
+    },
+    {
+        "id": 41,
+        "area": "ealing",
+        "population": 141000,
+        "Mean £": 25400,
+        "Median £": 18900,
+        "year": 2002,
+        "area1": "enfield",
+        "average_price": 144678,
+        "houses_sold": 440,
+        "Station": "Southgate",
+        "color": "#4c1838"
+    },
+    {
+        "id": 42,
+        "area": "enfield",
+        "population": 121000,
+        "Mean £": 24100,
+        "Median £": 18100,
+        "year": 2002,
+        "area1": "england",
+        "average_price": 96215,
+        "houses_sold": 71678,
+        "Station": "",
+        "color": "#55000b"
+    },
+    {
+        "id": 43,
+        "area": "greenwich",
+        "population": 95000,
+        "Mean £": 22900,
+        "Median £": 17000,
+        "year": 2002,
+        "area1": "greenwich",
+        "average_price": 134327,
+        "houses_sold": 282,
+        "Station": "North Greenwich",
+        "color": "#aad387"
+    },
+    {
+        "id": 44,
+        "area": "hackney",
+        "population": 76000,
+        "Mean £": 21300,
+        "Median £": 17300,
+        "year": 2002,
+        "area1": "hackney",
+        "average_price": 165007,
+        "houses_sold": 185,
+        "Station": "Manor House",
+        "color": "#ef499e"
+    },
+    {
+        "id": 45,
+        "area": "hammersmith and fulham",
+        "population": 86000,
+        "Mean £": 35800,
+        "Median £": 20800,
+        "year": 2002,
+        "area1": "hammersmith and fulham",
+        "average_price": 280576,
+        "houses_sold": 227,
+        "Station": "Wood Lane",
+        "color": "#45483a"
+    },
+    {
+        "id": 46,
+        "area": "haringey",
+        "population": 95000,
+        "Mean £": 26000,
+        "Median £": 17100,
+        "year": 2002,
+        "area1": "haringey",
+        "average_price": 173396,
+        "houses_sold": 272,
+        "Station": "Wood Green",
+        "color": "#6ddac0"
+    },
+    {
+        "id": 47,
+        "area": "harrow",
+        "population": 106000,
+        "Mean £": 26900,
+        "Median £": 19400,
+        "year": 2002,
+        "area1": "harrow",
+        "average_price": 184582,
+        "houses_sold": 246,
+        "Station": "West Harrow",
+        "color": "#e2c413"
+    },
+    {
+        "id": 48,
+        "area": "havering",
+        "population": 124000,
+        "Mean £": 22700,
+        "Median £": 18300,
+        "year": 2002,
+        "area1": "havering",
+        "average_price": 132721,
+        "houses_sold": 260,
+        "Station": "Upminster Bridge",
+        "color": "#d189a6"
+    },
+    {
+        "id": 49,
+        "area": "hillingdon",
+        "population": 118000,
+        "Mean £": 24000,
+        "Median £": 18800,
+        "year": 2002,
+        "area1": "hillingdon",
+        "average_price": 156059,
+        "houses_sold": 344,
+        "Station": "West Ruislip",
+        "color": "#e43a31"
+    },
+    {
+        "id": 50,
+        "area": "hounslow",
+        "population": 105000,
+        "Mean £": 24500,
+        "Median £": 18600,
+        "year": 2002,
+        "area1": "hounslow",
+        "average_price": 163947,
+        "houses_sold": 275,
+        "Station": "Turnham Green",
+        "color": "#c65834"
+    },
+    {
+        "id": 51,
+        "area": "islington",
+        "population": 86000,
+        "Mean £": 36300,
+        "Median £": 19100,
+        "year": 2002,
+        "area1": "islington",
+        "average_price": 226068,
+        "houses_sold": 186,
+        "Station": "Tufnell Park",
+        "color": "#69fd46"
+    },
+    {
+        "id": 52,
+        "area": "kensington and chelsea",
+        "population": 68000,
+        "Mean £": 72900,
+        "Median £": 25400,
+        "year": 2002,
+        "area1": "kensington and chelsea",
+        "average_price": 407492,
+        "houses_sold": 281,
+        "Station": "West Brompton",
+        "color": "#c96822"
+    },
+    {
+        "id": 53,
+        "area": "kingston-upon-thames",
+        "population": 79000,
+        "Mean £": 27900,
+        "Median £": 20700,
+        "year": 2002,
+        "area1": "kingston upon thames",
+        "average_price": 189539,
+        "houses_sold": 280,
+        "Station": "",
+        "color": "#b663b0"
+    },
+    {
+        "id": 54,
+        "area": "lambeth",
+        "population": 119000,
+        "Mean £": 25900,
+        "Median £": 18800,
+        "year": 2002,
+        "area1": "lambeth",
+        "average_price": 177905,
+        "houses_sold": 340,
+        "Station": "Waterloo",
+        "color": "#75a892"
+    },
+    {
+        "id": 55,
+        "area": "lewisham",
+        "population": 113000,
+        "Mean £": 21400,
+        "Median £": 17300,
+        "year": 2002,
+        "area1": "lewisham",
+        "average_price": 131763,
+        "houses_sold": 428,
+        "Station": "",
+        "color": "#bf6f1b"
+    },
+    {
+        "id": 56,
+        "area": "merton",
+        "population": 94000,
+        "Mean £": 31600,
+        "Median £": 21200,
+        "year": 2002,
+        "area1": "merton",
+        "average_price": 180271,
+        "houses_sold": 280,
+        "Station": "Wimbledon Park",
+        "color": "#224175"
+    },
+    {
+        "id": 57,
+        "area": "newham",
+        "population": 96000,
+        "Mean £": 17300,
+        "Median £": 15000,
+        "year": 2002,
+        "area1": "newham",
+        "average_price": 122669,
+        "houses_sold": 369,
+        "Station": "West Ham",
+        "color": "#f053ad"
+    },
+    {
+        "id": 58,
+        "area": "redbridge",
+        "population": 111000,
+        "Mean £": 24000,
+        "Median £": 18700,
+        "year": 2002,
+        "area1": "redbridge",
+        "average_price": 153608,
+        "houses_sold": 348,
+        "Station": "Woodford",
+        "color": "#9ffb9f"
+    },
+    {
+        "id": 59,
+        "area": "richmond-upon-thames",
+        "population": 93000,
+        "Mean £": 39500,
+        "Median £": 23100,
+        "year": 2002,
+        "area1": "richmond upon thames",
+        "average_price": 251202,
+        "houses_sold": 265,
+        "Station": "",
+        "color": "#747181"
+    },
+    {
+        "id": 60,
+        "area": "southwark",
+        "population": 111000,
+        "Mean £": 24600,
+        "Median £": 17900,
+        "year": 2002,
+        "area1": "southwark",
+        "average_price": 173721,
+        "houses_sold": 309,
+        "Station": "Southwark",
+        "color": "#70e700"
+    },
+    {
+        "id": 61,
+        "area": "sutton",
+        "population": 93000,
+        "Mean £": 23700,
+        "Median £": 17800,
+        "year": 2002,
+        "area1": "sutton",
+        "average_price": 149153,
+        "houses_sold": 298,
+        "Station": "",
+        "color": "#e01192"
+    },
+    {
+        "id": 62,
+        "area": "tower hamlets",
+        "population": 76000,
+        "Mean £": 28500,
+        "Median £": 19300,
+        "year": 2002,
+        "area1": "tower hamlets",
+        "average_price": 170071,
+        "houses_sold": 258,
+        "Station": "Whitechapel",
+        "color": "#2f8a8d"
+    },
+    {
+        "id": 63,
+        "area": "waltham forest",
+        "population": 102000,
+        "Mean £": 20100,
+        "Median £": 17200,
+        "year": 2002,
+        "area1": "waltham forest",
+        "average_price": 132999,
+        "houses_sold": 330,
+        "Station": "Walthamstow Central",
+        "color": "#ba9dd1"
+    },
+    {
+        "id": 64,
+        "area": "wandsworth",
+        "population": 143000,
+        "Mean £": 35700,
+        "Median £": 22000,
+        "year": 2002,
+        "area1": "wandsworth",
+        "average_price": 211791,
+        "houses_sold": 531,
+        "Station": "Tooting Broadway",
+        "color": "#84ffee"
+    },
+    {
+        "id": 65,
+        "area": "westminster",
+        "population": 88000,
+        "Mean £": 56600,
+        "Median £": 22800,
+        "year": 2002,
+        "area1": "westminster",
+        "average_price": 304679,
+        "houses_sold": 373,
+        "Station": "",
+        "color": "#c6069c"
+    },
+    {
+        "id": 66,
+        "area": "barking and dagenham",
+        "population": 78000,
+        "Mean £": 21300,
+        "Median £": 18600,
+        "year": 2008,
+        "area1": "barking and dagenham",
+        "average_price": 194235,
+        "houses_sold": 215,
+        "Station": "Upney",
+        "color": "#4c141d"
+    },
+    {
+        "id": 67,
+        "area": "barnet",
+        "population": 173000,
+        "Mean £": 38700,
+        "Median £": 22000,
+        "year": 2008,
+        "area1": "barnet",
+        "average_price": 344480,
+        "houses_sold": 354,
+        "Station": "Woodside Park",
+        "color": "#4d778c"
+    },
+    {
+        "id": 68,
+        "area": "bexley",
+        "population": 123000,
+        "Mean £": 26700,
+        "Median £": 19800,
+        "year": 2008,
+        "area1": "bexley",
+        "average_price": 220086,
+        "houses_sold": 252,
+        "Station": "",
+        "color": "#44a682"
+    },
+    {
+        "id": 69,
+        "area": "brent",
+        "population": 161000,
+        "Mean £": 24700,
+        "Median £": 18300,
+        "year": 2008,
+        "area1": "brent",
+        "average_price": 300895,
+        "houses_sold": 207,
+        "Station": "Willesden Junction",
+        "color": "#859a41"
+    },
+    {
+        "id": 70,
+        "area": "bromley",
+        "population": 181000,
+        "Mean £": 34400,
+        "Median £": 23200,
+        "year": 2008,
+        "area1": "bromley",
+        "average_price": 293098,
+        "houses_sold": 337,
+        "Station": "",
+        "color": "#ec821f"
+    },
+    {
+        "id": 71,
+        "area": "camden",
+        "population": 107000,
+        "Mean £": 69800,
+        "Median £": 26900,
+        "year": 2008,
+        "area1": "camden",
+        "average_price": 486659,
+        "houses_sold": 217,
+        "Station": "West Hampstead",
+        "color": "#435bf6"
+    },
+    {
+        "id": 72,
+        "area": "city of london",
+        "population": 10000,
+        "Mean £": 102000,
+        "Median £": 58500,
+        "year": 2008,
+        "area1": "croydon",
+        "average_price": 248005,
+        "houses_sold": 400,
+        "Station": "",
+        "color": "#a45360"
+    },
+    {
+        "id": 73,
+        "area": "croydon",
+        "population": 179000,
+        "Mean £": 28100,
+        "Median £": 20900,
+        "year": 2008,
+        "area1": "ealing",
+        "average_price": 310173,
+        "houses_sold": 336,
+        "Station": "West Acton",
+        "color": "#a841a4"
+    },
+    {
+        "id": 74,
+        "area": "ealing",
+        "population": 169000,
+        "Mean £": 30000,
+        "Median £": 20200,
+        "year": 2008,
+        "area1": "enfield",
+        "average_price": 256572,
+        "houses_sold": 361,
+        "Station": "Southgate",
+        "color": "#4c1838"
+    },
+    {
+        "id": 75,
+        "area": "enfield",
+        "population": 145000,
+        "Mean £": 28100,
+        "Median £": 19900,
+        "year": 2008,
+        "area1": "england",
+        "average_price": 191750,
+        "houses_sold": 56189,
+        "Station": "",
+        "color": "#55000b"
+    },
+    {
+        "id": 76,
+        "area": "greenwich",
+        "population": 118000,
+        "Mean £": 29900,
+        "Median £": 20500,
+        "year": 2008,
+        "area1": "greenwich",
+        "average_price": 238450,
+        "houses_sold": 251,
+        "Station": "North Greenwich",
+        "color": "#aad387"
+    },
+    {
+        "id": 77,
+        "area": "hackney",
+        "population": 93000,
+        "Mean £": 27900,
+        "Median £": 20900,
+        "year": 2008,
+        "area1": "hackney",
+        "average_price": 308203,
+        "houses_sold": 178,
+        "Station": "Manor House",
+        "color": "#ef499e"
+    },
+    {
+        "id": 78,
+        "area": "hammersmith and fulham",
+        "population": 103000,
+        "Mean £": 48600,
+        "Median £": 23600,
+        "year": 2008,
+        "area1": "hammersmith and fulham",
+        "average_price": 487907,
+        "houses_sold": 187,
+        "Station": "Wood Lane",
+        "color": "#45483a"
+    },
+    {
+        "id": 79,
+        "area": "haringey",
+        "population": 124000,
+        "Mean £": 31900,
+        "Median £": 19800,
+        "year": 2008,
+        "area1": "haringey",
+        "average_price": 313986,
+        "houses_sold": 204,
+        "Station": "Wood Green",
+        "color": "#6ddac0"
+    },
+    {
+        "id": 80,
+        "area": "harrow",
+        "population": 120000,
+        "Mean £": 32400,
+        "Median £": 22100,
+        "year": 2008,
+        "area1": "harrow",
+        "average_price": 305837,
+        "houses_sold": 238,
+        "Station": "West Harrow",
+        "color": "#e2c413"
+    },
+    {
+        "id": 81,
+        "area": "havering",
+        "population": 133000,
+        "Mean £": 27100,
+        "Median £": 20800,
+        "year": 2008,
+        "area1": "havering",
+        "average_price": 244747,
+        "houses_sold": 309,
+        "Station": "Upminster Bridge",
+        "color": "#d189a6"
+    },
+    {
+        "id": 82,
+        "area": "hillingdon",
+        "population": 133000,
+        "Mean £": 27900,
+        "Median £": 21800,
+        "year": 2008,
+        "area1": "hillingdon",
+        "average_price": 266873,
+        "houses_sold": 309,
+        "Station": "West Ruislip",
+        "color": "#e43a31"
+    },
+    {
+        "id": 83,
+        "area": "hounslow",
+        "population": 129000,
+        "Mean £": 29000,
+        "Median £": 20400,
+        "year": 2008,
+        "area1": "hounslow",
+        "average_price": 272960,
+        "houses_sold": 215,
+        "Station": "Turnham Green",
+        "color": "#c65834"
+    },
+    {
+        "id": 84,
+        "area": "islington",
+        "population": 105000,
+        "Mean £": 43300,
+        "Median £": 24400,
+        "year": 2008,
+        "area1": "islington",
+        "average_price": 408031,
+        "houses_sold": 205,
+        "Station": "Tufnell Park",
+        "color": "#69fd46"
+    },
+    {
+        "id": 85,
+        "area": "kensington and chelsea",
+        "population": 74000,
+        "Mean £": 151000,
+        "Median £": 31900,
+        "year": 2008,
+        "area1": "kensington and chelsea",
+        "average_price": 810781,
+        "houses_sold": 186,
+        "Station": "West Brompton",
+        "color": "#c96822"
+    },
+    {
+        "id": 86,
+        "area": "kingston-upon-thames",
+        "population": 82000,
+        "Mean £": 38200,
+        "Median £": 25200,
+        "year": 2008,
+        "area1": "kingston upon thames",
+        "average_price": 321799,
+        "houses_sold": 159,
+        "Station": "",
+        "color": "#b663b0"
+    },
+    {
+        "id": 87,
+        "area": "lambeth",
+        "population": 147000,
+        "Mean £": 33300,
+        "Median £": 22200,
+        "year": 2008,
+        "area1": "lambeth",
+        "average_price": 307930,
+        "houses_sold": 359,
+        "Station": "Waterloo",
+        "color": "#75a892"
+    },
+    {
+        "id": 88,
+        "area": "lewisham",
+        "population": 137000,
+        "Mean £": 27100,
+        "Median £": 21000,
+        "year": 2008,
+        "area1": "lewisham",
+        "average_price": 241511,
+        "houses_sold": 294,
+        "Station": "",
+        "color": "#bf6f1b"
+    },
+    {
+        "id": 89,
+        "area": "merton",
+        "population": 113000,
+        "Mean £": 39400,
+        "Median £": 22300,
+        "year": 2008,
+        "area1": "merton",
+        "average_price": 309345,
+        "houses_sold": 208,
+        "Station": "Wimbledon Park",
+        "color": "#224175"
+    },
+    {
+        "id": 90,
+        "area": "newham",
+        "population": 122000,
+        "Mean £": 21000,
+        "Median £": 16500,
+        "year": 2008,
+        "area1": "newham",
+        "average_price": 236617,
+        "houses_sold": 307,
+        "Station": "West Ham",
+        "color": "#f053ad"
+    },
+    {
+        "id": 91,
+        "area": "redbridge",
+        "population": 128000,
+        "Mean £": 29100,
+        "Median £": 21600,
+        "year": 2008,
+        "area1": "redbridge",
+        "average_price": 275150,
+        "houses_sold": 318,
+        "Station": "Woodford",
+        "color": "#9ffb9f"
+    },
+    {
+        "id": 92,
+        "area": "richmond-upon-thames",
+        "population": 104000,
+        "Mean £": 56900,
+        "Median £": 29100,
+        "year": 2008,
+        "area1": "richmond upon thames",
+        "average_price": 430126,
+        "houses_sold": 254,
+        "Station": "",
+        "color": "#747181"
+    },
+    {
+        "id": 93,
+        "area": "southwark",
+        "population": 136000,
+        "Mean £": 36000,
+        "Median £": 21900,
+        "year": 2008,
+        "area1": "southwark",
+        "average_price": 303543,
+        "houses_sold": 255,
+        "Station": "Southwark",
+        "color": "#70e700"
+    },
+    {
+        "id": 94,
+        "area": "sutton",
+        "population": 100000,
+        "Mean £": 30000,
+        "Median £": 22500,
+        "year": 2008,
+        "area1": "sutton",
+        "average_price": 257529,
+        "houses_sold": 232,
+        "Station": "",
+        "color": "#e01192"
+    },
+    {
+        "id": 95,
+        "area": "tower hamlets",
+        "population": 103000,
+        "Mean £": 37400,
+        "Median £": 21200,
+        "year": 2008,
+        "area1": "tower hamlets",
+        "average_price": 300654,
+        "houses_sold": 272,
+        "Station": "Whitechapel",
+        "color": "#2f8a8d"
+    },
+    {
+        "id": 96,
+        "area": "waltham forest",
+        "population": 121000,
+        "Mean £": 23200,
+        "Median £": 18200,
+        "year": 2008,
+        "area1": "waltham forest",
+        "average_price": 249909,
+        "houses_sold": 247,
+        "Station": "Walthamstow Central",
+        "color": "#ba9dd1"
+    },
+    {
+        "id": 97,
+        "area": "wandsworth",
+        "population": 167000,
+        "Mean £": 49500,
+        "Median £": 26100,
+        "year": 2008,
+        "area1": "wandsworth",
+        "average_price": 381421,
+        "houses_sold": 370,
+        "Station": "Tooting Broadway",
+        "color": "#84ffee"
+    },
+    {
+        "id": 98,
+        "area": "westminster",
+        "population": 111000,
+        "Mean £": 82600,
+        "Median £": 29200,
+        "year": 2008,
+        "area1": "westminster",
+        "average_price": 546512,
+        "houses_sold": 289,
+        "Station": "",
+        "color": "#c6069c"
+    },
+    {
+        "id": 99,
+        "area": "barking and dagenham",
+        "population": 74000,
+        "Mean £": 25500,
+        "Median £": 21800,
+        "year": 2014,
+        "area1": "barking and dagenham",
+        "average_price": 184884,
+        "houses_sold": 127,
+        "Station": "Upney",
+        "color": "#4c141d"
+    },
+    {
+        "id": 100,
+        "area": "barnet",
+        "population": 175000,
+        "Mean £": 45800,
+        "Median £": 27100,
+        "year": 2014,
+        "area1": "barnet",
+        "average_price": 398384,
+        "houses_sold": 410,
+        "Station": "Woodside Park",
+        "color": "#4d778c"
+    },
+    {
+        "id": 101,
+        "area": "bexley",
+        "population": 122000,
+        "Mean £": 30200,
+        "Median £": 24400,
+        "year": 2014,
+        "area1": "bexley",
+        "average_price": 224321,
+        "houses_sold": 316,
+        "Station": "",
+        "color": "#44a682"
+    },
+    {
+        "id": 102,
+        "area": "brent",
+        "population": 147000,
+        "Mean £": 31200,
+        "Median £": 22700,
+        "year": 2014,
+        "area1": "brent",
+        "average_price": 365190,
+        "houses_sold": 232,
+        "Station": "Willesden Junction",
+        "color": "#859a41"
+    },
+    {
+        "id": 103,
+        "area": "bromley",
+        "population": 168000,
+        "Mean £": 40400,
+        "Median £": 28100,
+        "year": 2014,
+        "area1": "bromley",
+        "average_price": 315709,
+        "houses_sold": 520,
+        "Station": "",
+        "color": "#ec821f"
+    },
+    {
+        "id": 104,
+        "area": "camden",
+        "population": 104000,
+        "Mean £": 79200,
+        "Median £": 33100,
+        "year": 2014,
+        "area1": "camden",
+        "average_price": 695470,
+        "houses_sold": 245,
+        "Station": "West Hampstead",
+        "color": "#435bf6"
+    },
+    {
+        "id": 105,
+        "area": "city of london",
+        "population": 9000,
+        "Mean £": 144000,
+        "Median £": 61100,
+        "year": 2014,
+        "area1": "croydon",
+        "average_price": 249311,
+        "houses_sold": 455,
+        "Station": "",
+        "color": "#a45360"
+    },
+    {
+        "id": 106,
+        "area": "croydon",
+        "population": 176000,
+        "Mean £": 32600,
+        "Median £": 25100,
+        "year": 2014,
+        "area1": "ealing",
+        "average_price": 364514,
+        "houses_sold": 301,
+        "Station": "West Acton",
+        "color": "#a841a4"
+    },
+    {
+        "id": 107,
+        "area": "ealing",
+        "population": 167000,
+        "Mean £": 35300,
+        "Median £": 24600,
+        "year": 2014,
+        "area1": "enfield",
+        "average_price": 273452,
+        "houses_sold": 326,
+        "Station": "Southgate",
+        "color": "#4c1838"
+    },
+    {
+        "id": 108,
+        "area": "enfield",
+        "population": 137000,
+        "Mean £": 34400,
+        "Median £": 25300,
+        "year": 2014,
+        "area1": "england",
+        "average_price": 188265,
+        "houses_sold": 64587,
+        "Station": "",
+        "color": "#55000b"
+    },
+    {
+        "id": 109,
+        "area": "greenwich",
+        "population": 119000,
+        "Mean £": 34800,
+        "Median £": 24600,
+        "year": 2014,
+        "area1": "greenwich",
+        "average_price": 276452,
+        "houses_sold": 341,
+        "Station": "North Greenwich",
+        "color": "#aad387"
+    },
+    {
+        "id": 110,
+        "area": "hackney",
+        "population": 106000,
+        "Mean £": 37100,
+        "Median £": 26000,
+        "year": 2014,
+        "area1": "hackney",
+        "average_price": 415053,
+        "houses_sold": 169,
+        "Station": "Manor House",
+        "color": "#ef499e"
+    },
+    {
+        "id": 111,
+        "area": "hammersmith and fulham",
+        "population": 92000,
+        "Mean £": 62000,
+        "Median £": 30100,
+        "year": 2014,
+        "area1": "hammersmith and fulham",
+        "average_price": 666572,
+        "houses_sold": 289,
+        "Station": "Wood Lane",
+        "color": "#45483a"
+    },
+    {
+        "id": 112,
+        "area": "haringey",
+        "population": 126000,
+        "Mean £": 39500,
+        "Median £": 25800,
+        "year": 2014,
+        "area1": "haringey",
+        "average_price": 402646,
+        "houses_sold": 243,
+        "Station": "Wood Green",
+        "color": "#6ddac0"
+    },
+    {
+        "id": 113,
+        "area": "harrow",
+        "population": 120000,
+        "Mean £": 37000,
+        "Median £": 26100,
+        "year": 2014,
+        "area1": "harrow",
+        "average_price": 338590,
+        "houses_sold": 233,
+        "Station": "West Harrow",
+        "color": "#e2c413"
+    },
+    {
+        "id": 114,
+        "area": "havering",
+        "population": 124000,
+        "Mean £": 32100,
+        "Median £": 24900,
+        "year": 2014,
+        "area1": "havering",
+        "average_price": 238220,
+        "houses_sold": 324,
+        "Station": "Upminster Bridge",
+        "color": "#d189a6"
+    },
+    {
+        "id": 115,
+        "area": "hillingdon",
+        "population": 139000,
+        "Mean £": 32300,
+        "Median £": 25300,
+        "year": 2014,
+        "area1": "hillingdon",
+        "average_price": 282892,
+        "houses_sold": 340,
+        "Station": "West Ruislip",
+        "color": "#e43a31"
+    },
+    {
+        "id": 116,
+        "area": "hounslow",
+        "population": 129000,
+        "Mean £": 36800,
+        "Median £": 24700,
+        "year": 2014,
+        "area1": "hounslow",
+        "average_price": 302920,
+        "houses_sold": 257,
+        "Station": "Turnham Green",
+        "color": "#c65834"
+    },
+    {
+        "id": 117,
+        "area": "islington",
+        "population": 102000,
+        "Mean £": 56800,
+        "Median £": 31000,
+        "year": 2014,
+        "area1": "islington",
+        "average_price": 548119,
+        "houses_sold": 220,
+        "Station": "Tufnell Park",
+        "color": "#69fd46"
+    },
+    {
+        "id": 118,
+        "area": "kensington and chelsea",
+        "population": 71000,
+        "Mean £": 158000,
+        "Median £": 38700,
+        "year": 2014,
+        "area1": "kensington and chelsea",
+        "average_price": 1204771,
+        "houses_sold": 280,
+        "Station": "West Brompton",
+        "color": "#c96822"
+    },
+    {
+        "id": 119,
+        "area": "kingston-upon-thames",
+        "population": 79000,
+        "Mean £": 43600,
+        "Median £": 29100,
+        "year": 2014,
+        "area1": "kingston upon thames",
+        "average_price": 369306,
+        "houses_sold": 232,
+        "Station": "",
+        "color": "#b663b0"
+    },
+    {
+        "id": 120,
+        "area": "lambeth",
+        "population": 161000,
+        "Mean £": 41100,
+        "Median £": 27300,
+        "year": 2014,
+        "area1": "lambeth",
+        "average_price": 395104,
+        "houses_sold": 464,
+        "Station": "Waterloo",
+        "color": "#75a892"
+    },
+    {
+        "id": 121,
+        "area": "lewisham",
+        "population": 135000,
+        "Mean £": 32400,
+        "Median £": 24900,
+        "year": 2014,
+        "area1": "lewisham",
+        "average_price": 289574,
+        "houses_sold": 352,
+        "Station": "",
+        "color": "#bf6f1b"
+    },
+    {
+        "id": 122,
+        "area": "merton",
+        "population": 106000,
+        "Mean £": 46900,
+        "Median £": 27600,
+        "year": 2014,
+        "area1": "merton",
+        "average_price": 377855,
+        "houses_sold": 273,
+        "Station": "Wimbledon Park",
+        "color": "#224175"
+    },
+    {
+        "id": 123,
+        "area": "newham",
+        "population": 130000,
+        "Mean £": 25400,
+        "Median £": 20200,
+        "year": 2014,
+        "area1": "newham",
+        "average_price": 234334,
+        "houses_sold": 237,
+        "Station": "West Ham",
+        "color": "#f053ad"
+    },
+    {
+        "id": 124,
+        "area": "redbridge",
+        "population": 131000,
+        "Mean £": 33900,
+        "Median £": 25700,
+        "year": 2014,
+        "area1": "redbridge",
+        "average_price": 289684,
+        "houses_sold": 308,
+        "Station": "Woodford",
+        "color": "#9ffb9f"
+    },
+    {
+        "id": 125,
+        "area": "richmond-upon-thames",
+        "population": 104000,
+        "Mean £": 64600,
+        "Median £": 35800,
+        "year": 2014,
+        "area1": "richmond upon thames",
+        "average_price": 512942,
+        "houses_sold": 296,
+        "Station": "",
+        "color": "#747181"
+    },
+    {
+        "id": 126,
+        "area": "southwark",
+        "population": 140000,
+        "Mean £": 41600,
+        "Median £": 27700,
+        "year": 2014,
+        "area1": "southwark",
+        "average_price": 396213,
+        "houses_sold": 323,
+        "Station": "Southwark",
+        "color": "#70e700"
+    },
+    {
+        "id": 127,
+        "area": "sutton",
+        "population": 102000,
+        "Mean £": 33600,
+        "Median £": 25900,
+        "year": 2014,
+        "area1": "sutton",
+        "average_price": 269434,
+        "houses_sold": 277,
+        "Station": "",
+        "color": "#e01192"
+    },
+    {
+        "id": 128,
+        "area": "tower hamlets",
+        "population": 121000,
+        "Mean £": 41800,
+        "Median £": 26600,
+        "year": 2014,
+        "area1": "tower hamlets",
+        "average_price": 355235,
+        "houses_sold": 430,
+        "Station": "Whitechapel",
+        "color": "#2f8a8d"
+    },
+    {
+        "id": 129,
+        "area": "waltham forest",
+        "population": 128000,
+        "Mean £": 28200,
+        "Median £": 22700,
+        "year": 2014,
+        "area1": "waltham forest",
+        "average_price": 279085,
+        "houses_sold": 241,
+        "Station": "Walthamstow Central",
+        "color": "#ba9dd1"
+    },
+    {
+        "id": 130,
+        "area": "wandsworth",
+        "population": 168000,
+        "Mean £": 59200,
+        "Median £": 32900,
+        "year": 2014,
+        "area1": "wandsworth",
+        "average_price": 497300,
+        "houses_sold": 576,
+        "Station": "Tooting Broadway",
+        "color": "#84ffee"
+    },
+    {
+        "id": 131,
+        "area": "westminster",
+        "population": 102000,
+        "Mean £": 104000,
+        "Median £": 35100,
+        "year": 2014,
+        "area1": "westminster",
+        "average_price": 855067,
+        "houses_sold": 303,
+        "Station": "",
+        "color": "#c6069c"
+    },
+    {
+        "id": 132,
+        "area": "barking and dagenham",
+        "population": 85000,
+        "Mean £": 29400,
+        "Median £": 25700,
+        "year": 2019,
+        "area1": "barking and dagenham",
+        "average_price": 297181,
+        "houses_sold": 119,
+        "Station": "Upney",
+        "color": "#4c141d"
+    },
+    {
+        "id": 133,
+        "area": "barnet",
+        "population": 192000,
+        "Mean £": 51600,
+        "Median £": 30700,
+        "year": 2019,
+        "area1": "barnet",
+        "average_price": 528639,
+        "houses_sold": 291,
+        "Station": "Woodside Park",
+        "color": "#4d778c"
+    },
+    {
+        "id": 134,
+        "area": "bexley",
+        "population": 126000,
+        "Mean £": 36000,
+        "Median £": 28000,
+        "year": 2019,
+        "area1": "bexley",
+        "average_price": 338708,
+        "houses_sold": 215,
+        "Station": "",
+        "color": "#44a682"
+    },
+    {
+        "id": 135,
+        "area": "brent",
+        "population": 155000,
+        "Mean £": 37800,
+        "Median £": 26200,
+        "year": 2019,
+        "area1": "brent",
+        "average_price": 479106,
+        "houses_sold": 126,
+        "Station": "Willesden Junction",
+        "color": "#859a41"
+    },
+    {
+        "id": 136,
+        "area": "bromley",
+        "population": 176000,
+        "Mean £": 48200,
+        "Median £": 33700,
+        "year": 2019,
+        "area1": "bromley",
+        "average_price": 440624,
+        "houses_sold": 280,
+        "Station": "",
+        "color": "#ec821f"
+    },
+    {
+        "id": 137,
+        "area": "camden",
+        "population": 104000,
+        "Mean £": 96900,
+        "Median £": 38200,
+        "year": 2019,
+        "area1": "camden",
+        "average_price": 867808,
+        "houses_sold": 102,
+        "Station": "West Hampstead",
+        "color": "#435bf6"
+    },
+    {
+        "id": 138,
+        "area": "city of london",
+        "population": 12000,
+        "Mean £": 128000,
+        "Median £": 54200,
+        "year": 2019,
+        "area1": "croydon",
+        "average_price": 365096,
+        "houses_sold": 271,
+        "Station": "",
+        "color": "#a45360"
+    },
+    {
+        "id": 139,
+        "area": "croydon",
+        "population": 184000,
+        "Mean £": 37800,
+        "Median £": 29400,
+        "year": 2019,
+        "area1": "ealing",
+        "average_price": 483336,
+        "houses_sold": 186,
+        "Station": "West Acton",
+        "color": "#a841a4"
+    },
+    {
+        "id": 140,
+        "area": "ealing",
+        "population": 170000,
+        "Mean £": 42700,
+        "Median £": 28200,
+        "year": 2019,
+        "area1": "enfield",
+        "average_price": 395616,
+        "houses_sold": 202,
+        "Station": "Southgate",
+        "color": "#4c1838"
+    },
+    {
+        "id": 141,
+        "area": "enfield",
+        "population": 145000,
+        "Mean £": 39500,
+        "Median £": 28300,
+        "year": 2019,
+        "area1": "england",
+        "average_price": 244641,
+        "houses_sold": 54134,
+        "Station": "",
+        "color": "#55000b"
+    },
+    {
+        "id": 142,
+        "area": "greenwich",
+        "population": 127000,
+        "Mean £": 44700,
+        "Median £": 30100,
+        "year": 2019,
+        "area1": "greenwich",
+        "average_price": 385703,
+        "houses_sold": 273,
+        "Station": "North Greenwich",
+        "color": "#aad387"
+    },
+    {
+        "id": 143,
+        "area": "hackney",
+        "population": 111000,
+        "Mean £": 47200,
+        "Median £": 32400,
+        "year": 2019,
+        "area1": "hackney",
+        "average_price": 527573,
+        "houses_sold": 155,
+        "Station": "Manor House",
+        "color": "#ef499e"
+    },
+    {
+        "id": 144,
+        "area": "hammersmith and fulham",
+        "population": 95000,
+        "Mean £": 75900,
+        "Median £": 35800,
+        "year": 2019,
+        "area1": "hammersmith and fulham",
+        "average_price": 722045,
+        "houses_sold": 110,
+        "Station": "Wood Lane",
+        "color": "#45483a"
+    },
+    {
+        "id": 145,
+        "area": "haringey",
+        "population": 129000,
+        "Mean £": 48600,
+        "Median £": 28300,
+        "year": 2019,
+        "area1": "haringey",
+        "average_price": 545524,
+        "houses_sold": 158,
+        "Station": "Wood Green",
+        "color": "#6ddac0"
+    },
+    {
+        "id": 146,
+        "area": "harrow",
+        "population": 130000,
+        "Mean £": 41500,
+        "Median £": 29500,
+        "year": 2019,
+        "area1": "harrow",
+        "average_price": 453365,
+        "houses_sold": 169,
+        "Station": "West Harrow",
+        "color": "#e2c413"
+    },
+    {
+        "id": 147,
+        "area": "havering",
+        "population": 130000,
+        "Mean £": 38100,
+        "Median £": 29800,
+        "year": 2019,
+        "area1": "havering",
+        "average_price": 367019,
+        "houses_sold": 224,
+        "Station": "Upminster Bridge",
+        "color": "#d189a6"
+    },
+    {
+        "id": 148,
+        "area": "hillingdon",
+        "population": 145000,
+        "Mean £": 37300,
+        "Median £": 28100,
+        "year": 2019,
+        "area1": "hillingdon",
+        "average_price": 413405,
+        "houses_sold": 211,
+        "Station": "West Ruislip",
+        "color": "#e43a31"
+    },
+    {
+        "id": 149,
+        "area": "hounslow",
+        "population": 136000,
+        "Mean £": 41700,
+        "Median £": 27500,
+        "year": 2019,
+        "area1": "hounslow",
+        "average_price": 397052,
+        "houses_sold": 158,
+        "Station": "Turnham Green",
+        "color": "#c65834"
+    },
+    {
+        "id": 150,
+        "area": "islington",
+        "population": 109000,
+        "Mean £": 66100,
+        "Median £": 36400,
+        "year": 2019,
+        "area1": "islington",
+        "average_price": 635328,
+        "houses_sold": 128,
+        "Station": "Tufnell Park",
+        "color": "#69fd46"
+    },
+    {
+        "id": 151,
+        "area": "kensington and chelsea",
+        "population": 67000,
+        "Mean £": 185000,
+        "Median £": 42100,
+        "year": 2019,
+        "area1": "kensington and chelsea",
+        "average_price": 1285331,
+        "houses_sold": 117,
+        "Station": "West Brompton",
+        "color": "#c96822"
+    },
+    {
+        "id": 152,
+        "area": "kingston-upon-thames",
+        "population": 84000,
+        "Mean £": 50500,
+        "Median £": 33500,
+        "year": 2019,
+        "area1": "kingston upon thames",
+        "average_price": 482032,
+        "houses_sold": 153,
+        "Station": "",
+        "color": "#b663b0"
+    },
+    {
+        "id": 153,
+        "area": "lambeth",
+        "population": 168000,
+        "Mean £": 49100,
+        "Median £": 31900,
+        "year": 2019,
+        "area1": "lambeth",
+        "average_price": 501861,
+        "houses_sold": 227,
+        "Station": "Waterloo",
+        "color": "#75a892"
+    },
+    {
+        "id": 154,
+        "area": "lewisham",
+        "population": 139000,
+        "Mean £": 41100,
+        "Median £": 30100,
+        "year": 2019,
+        "area1": "lewisham",
+        "average_price": 402343,
+        "houses_sold": 192,
+        "Station": "",
+        "color": "#bf6f1b"
+    },
+    {
+        "id": 155,
+        "area": "merton",
+        "population": 112000,
+        "Mean £": 55300,
+        "Median £": 30300,
+        "year": 2019,
+        "area1": "merton",
+        "average_price": 512341,
+        "houses_sold": 167,
+        "Station": "Wimbledon Park",
+        "color": "#224175"
+    },
+    {
+        "id": 156,
+        "area": "newham",
+        "population": 158000,
+        "Mean £": 31700,
+        "Median £": 24600,
+        "year": 2019,
+        "area1": "newham",
+        "average_price": 358029,
+        "houses_sold": 184,
+        "Station": "West Ham",
+        "color": "#f053ad"
+    },
+    {
+        "id": 157,
+        "area": "redbridge",
+        "population": 138000,
+        "Mean £": 38500,
+        "Median £": 28900,
+        "year": 2019,
+        "area1": "redbridge",
+        "average_price": 420810,
+        "houses_sold": 150,
+        "Station": "Woodford",
+        "color": "#9ffb9f"
+    },
+    {
+        "id": 158,
+        "area": "richmond-upon-thames",
+        "population": 104000,
+        "Mean £": 77400,
+        "Median £": 38900,
+        "year": 2019,
+        "area1": "richmond upon thames",
+        "average_price": 655056,
+        "houses_sold": 162,
+        "Station": "",
+        "color": "#747181"
+    },
+    {
+        "id": 159,
+        "area": "southwark",
+        "population": 152000,
+        "Mean £": 53400,
+        "Median £": 33500,
+        "year": 2019,
+        "area1": "southwark",
+        "average_price": 500164,
+        "houses_sold": 210,
+        "Station": "Southwark",
+        "color": "#70e700"
+    },
+    {
+        "id": 160,
+        "area": "sutton",
+        "population": 102000,
+        "Mean £": 40200,
+        "Median £": 30200,
+        "year": 2019,
+        "area1": "sutton",
+        "average_price": 374145,
+        "houses_sold": 185,
+        "Station": "",
+        "color": "#e01192"
+    },
+    {
+        "id": 161,
+        "area": "tower hamlets",
+        "population": 140000,
+        "Mean £": 50100,
+        "Median £": 32700,
+        "year": 2019,
+        "area1": "tower hamlets",
+        "average_price": 434143,
+        "houses_sold": 236,
+        "Station": "Whitechapel",
+        "color": "#2f8a8d"
+    },
+    {
+        "id": 162,
+        "area": "waltham forest",
+        "population": 139000,
+        "Mean £": 34900,
+        "Median £": 27700,
+        "year": 2019,
+        "area1": "waltham forest",
+        "average_price": 435182,
+        "houses_sold": 208,
+        "Station": "Walthamstow Central",
+        "color": "#ba9dd1"
+    },
+    {
+        "id": 163,
+        "area": "wandsworth",
+        "population": 172000,
+        "Mean £": 72400,
+        "Median £": 38900,
+        "year": 2019,
+        "area1": "wandsworth",
+        "average_price": 587609,
+        "houses_sold": 304,
+        "Station": "Tooting Broadway",
+        "color": "#84ffee"
+    },
+    {
+        "id": 164,
+        "area": "westminster",
+        "population": 98000,
+        "Mean £": 118000,
+        "Median £": 39900,
+        "year": 2019,
+        "area1": "westminster",
+        "average_price": 959408,
+        "houses_sold": 125,
+        "Station": "",
+        "color": "#c6069c"
+    }
+]
+//https://d3-graph-gallery.com/graph/line_several_group.html
+const areaListContainer = d3.select('.list-container');
+let fullDataset;
+
+     fullDataset = jsonData;
+     fullDataset.forEach(d => {
+      //date string parsing for graph
+    d.year = new Date(d.year+'');
+    d.average_price = d.average_price; 
+});
+      //getting unique areas
+       const areas = [...new Set(jsonData.map(item => item.area))];
+
+        const areaList = areaListContainer.selectAll('.list-item')
+            .data(areas)
+            .enter()
+            .append('label')
+            .classed('list-item', true)
+            .style("display", "flex")
+            .style("margin-right", "10px")
+            .style("justify-content", "space-between");
+
+          areaList.append('span')
+            .text(d => d);
+            
+          areaList.append('input')
+            .attr('type', 'checkbox')
+            .attr('name', 'area')
+            .attr('value', d => d)
+           .style("float", "right"); 
+        
+    
+        //whenever checkbox change need to update graphs accordingly
+        d3.selectAll("input[name='area']").on('change', updateGraph);
+
+
+function updateGraph() {
+  //getting selected areas from checkboxes and passing to the graph
+    const selectedAreas = d3.selectAll("input[name='area']:checked").data();
+    const selectedData = fullDataset.filter(d => selectedAreas.includes(d.area));
+      averagePropertyGraph(selectedData);
+      populationGraph(selectedData);
+      houseSoldGraph(selectedData)
+}
+
+function averagePropertyGraph(data) {
+    const margin = { top: 20, right: 20, bottom: 50, left: 70 },
+          width = 500 - margin.left - margin.right,
+          height = 370 - margin.top - margin.bottom;
+
+    const svg = d3.select(".graph1 svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom);
+
+  
+    svg.selectAll("*").remove();
+
+    const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleTime()
+        .domain(d3.extent(data, d => d.year))
+        .range([0, width]);
+
+    const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => d.average_price)])
+        .range([height, 0]);
+//https://stackoverflow.com/questions/11189284/d3-axis-labeling (for x and y axis)
+    g.append("text")
+        .attr("transform", `translate(${width / 2}, ${height + margin.bottom - 10})`) 
+        .style("text-anchor", "middle")
+        .text("Year");
+
+    g.append("g")
+       .attr("transform", `translate(0,${height})`)
+       .call(d3.axisBottom(x));
+
+    g.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "0.7em")
+        .style("text-anchor", "middle")
+        .text("Average property price");
+
+    g.append("g")
+       .call(d3.axisLeft(y));
+
+    const dataByArea = d3.groups(data, d => d.area);
+
+    const line = d3.line()
+        .x(d => x(d.year))
+        .y(d => y(d.average_price));
+  dataByArea.forEach(([area, values]) => {
+    const color = values[0].color
+
+    g.append("path")
+        .datum(values)
+        .attr("fill", "none")
+        .attr("stroke", color)
+        .attr("stroke-width", 1.5)
+        .attr("d", line);
+
+    g.selectAll(".dot-" + area) 
+        .data(values)
+        .enter().append("circle")
+        .attr("class", "dot dot-" + area) 
+        .attr("cx", d => x(d.year))
+        .attr("cy", d => y(d.average_price))
+        .attr("r", 4)
+        .attr("fill", color)
+        .on("mouseover", (event, d) => {
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", .9);
+            tooltip.html(`${area}<hr/>Average Price: ${d.average_price}<hr/>Year: ${new Date(d.year).getFullYear()}`)
+                .style("left", (event.pageX) + "px")
+                .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", () => {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
+
+    g.append("text")
+        .attr("x", width - 10)
+        .attr("y", y(values[values.length - 1].average_price)) 
+        .attr("dy", "0.35em")
+        .style("font", "10px sans-serif")
+        .style("text-anchor", "end")
+        .text(area)
+        .attr("fill", color);
+});
+
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("background-color", "#fff")
+        .style("color", "#000")
+        .style("padding", "8px")
+        .style("border-radius", "8px");
+}
+
+function populationGraph(data) {
+    const margin = { top: 20, right: 20, bottom: 50, left: 70 },
+          width = 500 - margin.left - margin.right,
+          height = 350 - margin.top - margin.bottom;
+
+    const svg = d3.select(".graph2 svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom);
+
+  
+    svg.selectAll("*").remove();
+
+    const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleTime()
+        .domain(d3.extent(data, d => d.year))
+        .range([0, width]);
+
+    const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => +d.population)])
+        .range([height, 0]);
+
+    g.append("text")
+        .attr("transform", `translate(${width / 2}, ${height + margin.bottom - 10})`) // Position label below the bottom center of the graph with margin
+        .style("text-anchor", "middle")
+        .text("Year");
+
+    g.append("g")
+       .attr("transform", `translate(0,${height})`)
+       .call(d3.axisBottom(x));
+
+    g.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "0.7em")
+        .style("text-anchor", "middle")
+        .text("Number of individuals");
+
+    g.append("g")
+       .call(d3.axisLeft(y));
+
+    const dataByArea = d3.groups(data, d => d.area);
+
+    const line = d3.line()
+        .x(d => x(d.year))
+        .y(d => y(d.population));
+    dataByArea.forEach(([area, values]) => {
+      console.log(values)
+    const color =  values[0].color
+    g.append("path")
+        .datum(values)
+        .attr("fill", "none")
+        .attr("stroke", color)
+        .attr("stroke-width", 1.5)
+        .attr("d", line);
+
+    g.selectAll(".dot-" + area) 
+        .data(values)
+        .enter().append("circle")
+        .attr("class", "dot dot-" + area) 
+        .attr("cx", d => x(d.year))
+        .attr("cy", d => y(d.population))
+        .attr("r", 4)
+        .attr("fill", color)
+        .on("mouseover", (event, d) => {
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", .9);
+            tooltip.html(`${area}<hr/>Population: ${d.population}<hr/>Year: ${new Date(d.year).getFullYear()}`)
+                .style("left", (event.pageX) + "px")
+                .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", () => {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
+
+    g.append("text")
+        .attr("x", width - 10)
+        .attr("y", y(values[values.length - 1].population)) 
+        .attr("dy", "0.35em")
+        .style("font", "10px sans-serif")
+        .style("text-anchor", "end")
+        .text(area)
+        .attr("fill", color);
+});
+
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("background-color", "#fff")
+        .style("color", "#000")
+        .style("padding", "8px")
+        .style("border-radius", "8px");
+}
+
+function houseSoldGraph(data) {
+    const margin = { top: 20, right: 20, bottom: 50, left: 70 },
+          width = 500 - margin.left - margin.right,
+          height = 350 - margin.top - margin.bottom;
+
+    const svg = d3.select(".graph3 svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom);
+
+  
+    svg.selectAll("*").remove();
+
+    const g = svg.append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const x = d3.scaleTime()
+        .domain(d3.extent(data, d => d.year))
+        .range([0, width]);
+
+    const y = d3.scaleLinear()
+        .domain([0, d3.max(data, d => +d.houses_sold)])
+        .range([height, 0]);
+
+  g.append("text")
+        .attr("transform", `translate(${width / 2}, ${height + margin.bottom - 10})`) // Position label below the bottom center of the graph with margin
+        .style("text-anchor", "middle")
+        .text("Year");
+
+    g.append("g")
+       .attr("transform", `translate(0,${height})`)
+       .call(d3.axisBottom(x));
+
+    g.append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("y", 0 - margin.left)
+        .attr("x", 0 - (height / 2))
+        .attr("dy", "0.7em")
+        .style("text-anchor", "middle")
+        .text("Number of houses sold");
+
+    g.append("g")
+       .call(d3.axisLeft(y));
+
+    const dataByArea = d3.groups(data, d => d.area);
+
+    const line = d3.line()
+        .x(d => x(d.year))
+        .y(d => y(d.houses_sold));
+dataByArea.forEach(([area, values]) => {
+    const color =  values[0].color
+
+    g.append("path")
+        .datum(values)
+        .attr("fill", "none")
+        .attr("stroke", color)
+        .attr("stroke-width", 1.5)
+        .attr("d", line);
+
+    g.selectAll(".dot-" + area) 
+        .data(values)
+        .enter().append("circle")
+        .attr("class", "dot dot-" + area) 
+        .attr("cx", d => x(d.year))
+        .attr("cy", d => y(d.houses_sold))
+        .attr("r", 4)
+        .attr("fill", color)
+        .on("mouseover", (event, d) => {
+            tooltip.transition()
+                .duration(200)
+                .style("opacity", .9);
+            tooltip.html(`${area}<hr/>Houses Sold: ${d.houses_sold}<hr/>Year: ${new Date(d.year).getFullYear()}`)
+                .style("left", (event.pageX) + "px")
+                .style("top", (event.pageY - 28) + "px");
+        })
+        .on("mouseout", () => {
+            tooltip.transition()
+                .duration(500)
+                .style("opacity", 0);
+        });
+
+    g.append("text")
+        .attr("x", width - 10)
+        .attr("y", y(values[values.length - 1].houses_sold)) 
+        .attr("dy", "0.35em")
+        .style("font", "10px sans-serif")
+        .style("text-anchor", "end")
+        .text(area)
+        .attr("fill", color);
+
+        d3.select(".loremText")
+        .style("background-color", "#fff")
+        .style("color", "#000")
+        .style("padding", "8px")
+        .style("border-radius", "8px")
+        .style("margin-left", "78px")
+        .html(`<h4>Data Processing</h4>
+         <p> The data processing involves transforming the CSV data into a structured JSON format, arranging it as an array of objects. To ensure uniformity and visual coherence across all generated graphs, a color property is being assigned to each geographical area. This ensures that each area consistently appears with the same color line in every graph, simplifying comparisons and enhancing the analysis of data trends. By maintaining a consistent color scheme throughout the graphs, it becomes easier to discern patterns and make insightful observations about the dataset.</p>`)
+
+});
+
+    const tooltip = d3.select("body").append("div")
+        .attr("class", "tooltip")
+        .style("opacity", 0)
+        .style("background-color", "#fff")
+        .style("color", "#000")
+        .style("padding", "8px")
+        .style("border-radius", "8px");
+}
+
+</script>
+</body>
+</html>
