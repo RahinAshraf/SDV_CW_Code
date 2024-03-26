@@ -1,0 +1,166 @@
+area,date,year,average_price,houses_sold,Station
+barking and dagenham,1999-01-01,1999,64532,177.0,Upney
+barnet,1999-01-01,1999,126189,417.0,Woodside Park
+bexley,1999-01-01,1999,83064,292.0,
+brent,1999-01-01,1999,105461,261.0,Willesden Junction
+bromley,1999-01-01,1999,112544,406.0,
+camden,1999-01-01,1999,170961,208.0,West Hampstead
+croydon,1999-01-01,1999,91179,442.0,
+ealing,1999-01-01,1999,112914,371.0,West Acton
+enfield,1999-01-01,1999,94831,399.0,Southgate
+england,1999-01-01,1999,65766,59989.0,
+greenwich,1999-01-01,1999,86685,270.0,North Greenwich
+hackney,1999-01-01,1999,99489,196.0,Manor House
+hammersmith and fulham,1999-01-01,1999,178179,198.0,Wood Lane
+haringey,1999-01-01,1999,107523,229.0,Wood Green
+harrow,1999-01-01,1999,118611,210.0,West Harrow
+havering,1999-01-01,1999,89521,222.0,Upminster Bridge
+hillingdon,1999-01-01,1999,102147,335.0,West Ruislip
+hounslow,1999-01-01,1999,101234,241.0,Turnham Green
+islington,1999-01-01,1999,135270,220.0,Tufnell Park
+kensington and chelsea,1999-01-01,1999,278269,292.0,West Brompton
+kingston upon thames,1999-01-01,1999,119773,215.0,
+lambeth,1999-01-01,1999,106119,322.0,Waterloo
+lewisham,1999-01-01,1999,77528,283.0,
+merton,1999-01-01,1999,109274,268.0,Wimbledon Park
+newham,1999-01-01,1999,69439,251.0,West Ham
+redbridge,1999-01-01,1999,96338,297.0,Woodford
+richmond upon thames,1999-01-01,1999,174889,302.0,
+southwark,1999-01-01,1999,100115,284.0,Southwark
+sutton,1999-01-01,1999,94888,276.0,
+tower hamlets,1999-01-01,1999,107464,273.0,Whitechapel
+waltham forest,1999-01-01,1999,78117,307.0,Walthamstow Central
+wandsworth,1999-01-01,1999,126280,452.0,Tooting Broadway
+westminster,1999-01-01,1999,188601,353.0,
+barking and dagenham,2002-01-01,2002,98713,216.0,Upney
+barnet,2002-01-01,2002,203249,501.0,Woodside Park
+bexley,2002-01-01,2002,124283,319.0,
+brent,2002-01-01,2002,168671,315.0,Willesden Junction
+bromley,2002-01-01,2002,173150,445.0,
+camden,2002-01-01,2002,290461,237.0,West Hampstead
+croydon,2002-01-01,2002,143108,455.0,
+ealing,2002-01-01,2002,178154,412.0,West Acton
+enfield,2002-01-01,2002,144678,440.0,Southgate
+england,2002-01-01,2002,96215,71678.0,
+greenwich,2002-01-01,2002,134327,282.0,North Greenwich
+hackney,2002-01-01,2002,165007,185.0,Manor House
+hammersmith and fulham,2002-01-01,2002,280576,227.0,Wood Lane
+haringey,2002-01-01,2002,173396,272.0,Wood Green
+harrow,2002-01-01,2002,184582,246.0,West Harrow
+havering,2002-01-01,2002,132721,260.0,Upminster Bridge
+hillingdon,2002-01-01,2002,156059,344.0,West Ruislip
+hounslow,2002-01-01,2002,163947,275.0,Turnham Green
+islington,2002-01-01,2002,226068,186.0,Tufnell Park
+kensington and chelsea,2002-01-01,2002,407492,281.0,West Brompton
+kingston upon thames,2002-01-01,2002,189539,280.0,
+lambeth,2002-01-01,2002,177905,340.0,Waterloo
+lewisham,2002-01-01,2002,131763,428.0,
+merton,2002-01-01,2002,180271,280.0,Wimbledon Park
+newham,2002-01-01,2002,122669,369.0,West Ham
+redbridge,2002-01-01,2002,153608,348.0,Woodford
+richmond upon thames,2002-01-01,2002,251202,265.0,
+southwark,2002-01-01,2002,173721,309.0,Southwark
+sutton,2002-01-01,2002,149153,298.0,
+tower hamlets,2002-01-01,2002,170071,258.0,Whitechapel
+waltham forest,2002-01-01,2002,132999,330.0,Walthamstow Central
+wandsworth,2002-01-01,2002,211791,531.0,Tooting Broadway
+westminster,2002-01-01,2002,304679,373.0,
+barking and dagenham,2008-01-01,2008,194235,215.0,Upney
+barnet,2008-01-01,2008,344480,354.0,Woodside Park
+bexley,2008-01-01,2008,220086,252.0,
+brent,2008-01-01,2008,300895,207.0,Willesden Junction
+bromley,2008-01-01,2008,293098,337.0,
+camden,2008-01-01,2008,486659,217.0,West Hampstead
+croydon,2008-01-01,2008,248005,400.0,
+ealing,2008-01-01,2008,310173,336.0,West Acton
+enfield,2008-01-01,2008,256572,361.0,Southgate
+england,2008-01-01,2008,191750,56189.0,
+greenwich,2008-01-01,2008,238450,251.0,North Greenwich
+hackney,2008-01-01,2008,308203,178.0,Manor House
+hammersmith and fulham,2008-01-01,2008,487907,187.0,Wood Lane
+haringey,2008-01-01,2008,313986,204.0,Wood Green
+harrow,2008-01-01,2008,305837,238.0,West Harrow
+havering,2008-01-01,2008,244747,309.0,Upminster Bridge
+hillingdon,2008-01-01,2008,266873,309.0,West Ruislip
+hounslow,2008-01-01,2008,272960,215.0,Turnham Green
+islington,2008-01-01,2008,408031,205.0,Tufnell Park
+kensington and chelsea,2008-01-01,2008,810781,186.0,West Brompton
+kingston upon thames,2008-01-01,2008,321799,159.0,
+lambeth,2008-01-01,2008,307930,359.0,Waterloo
+lewisham,2008-01-01,2008,241511,294.0,
+merton,2008-01-01,2008,309345,208.0,Wimbledon Park
+newham,2008-01-01,2008,236617,307.0,West Ham
+redbridge,2008-01-01,2008,275150,318.0,Woodford
+richmond upon thames,2008-01-01,2008,430126,254.0,
+southwark,2008-01-01,2008,303543,255.0,Southwark
+sutton,2008-01-01,2008,257529,232.0,
+tower hamlets,2008-01-01,2008,300654,272.0,Whitechapel
+waltham forest,2008-01-01,2008,249909,247.0,Walthamstow Central
+wandsworth,2008-01-01,2008,381421,370.0,Tooting Broadway
+westminster,2008-01-01,2008,546512,289.0,
+barking and dagenham,2014-01-01,2014,184884,127.0,Upney
+barnet,2014-01-01,2014,398384,410.0,Woodside Park
+bexley,2014-01-01,2014,224321,316.0,
+brent,2014-01-01,2014,365190,232.0,Willesden Junction
+bromley,2014-01-01,2014,315709,520.0,
+camden,2014-01-01,2014,695470,245.0,West Hampstead
+croydon,2014-01-01,2014,249311,455.0,
+ealing,2014-01-01,2014,364514,301.0,West Acton
+enfield,2014-01-01,2014,273452,326.0,Southgate
+england,2014-01-01,2014,188265,64587.0,
+greenwich,2014-01-01,2014,276452,341.0,North Greenwich
+hackney,2014-01-01,2014,415053,169.0,Manor House
+hammersmith and fulham,2014-01-01,2014,666572,289.0,Wood Lane
+haringey,2014-01-01,2014,402646,243.0,Wood Green
+harrow,2014-01-01,2014,338590,233.0,West Harrow
+havering,2014-01-01,2014,238220,324.0,Upminster Bridge
+hillingdon,2014-01-01,2014,282892,340.0,West Ruislip
+hounslow,2014-01-01,2014,302920,257.0,Turnham Green
+islington,2014-01-01,2014,548119,220.0,Tufnell Park
+kensington and chelsea,2014-01-01,2014,1204771,280.0,West Brompton
+kingston upon thames,2014-01-01,2014,369306,232.0,
+lambeth,2014-01-01,2014,395104,464.0,Waterloo
+lewisham,2014-01-01,2014,289574,352.0,
+merton,2014-01-01,2014,377855,273.0,Wimbledon Park
+newham,2014-01-01,2014,234334,237.0,West Ham
+redbridge,2014-01-01,2014,289684,308.0,Woodford
+richmond upon thames,2014-01-01,2014,512942,296.0,
+southwark,2014-01-01,2014,396213,323.0,Southwark
+sutton,2014-01-01,2014,269434,277.0,
+tower hamlets,2014-01-01,2014,355235,430.0,Whitechapel
+waltham forest,2014-01-01,2014,279085,241.0,Walthamstow Central
+wandsworth,2014-01-01,2014,497300,576.0,Tooting Broadway
+westminster,2014-01-01,2014,855067,303.0,
+barking and dagenham,2019-01-01,2019,297181,119.0,Upney
+barnet,2019-01-01,2019,528639,291.0,Woodside Park
+bexley,2019-01-01,2019,338708,215.0,
+brent,2019-01-01,2019,479106,126.0,Willesden Junction
+bromley,2019-01-01,2019,440624,280.0,
+camden,2019-01-01,2019,867808,102.0,West Hampstead
+croydon,2019-01-01,2019,365096,271.0,
+ealing,2019-01-01,2019,483336,186.0,West Acton
+enfield,2019-01-01,2019,395616,202.0,Southgate
+england,2019-01-01,2019,244641,54134.0,
+greenwich,2019-01-01,2019,385703,273.0,North Greenwich
+hackney,2019-01-01,2019,527573,155.0,Manor House
+hammersmith and fulham,2019-01-01,2019,722045,110.0,Wood Lane
+haringey,2019-01-01,2019,545524,158.0,Wood Green
+harrow,2019-01-01,2019,453365,169.0,West Harrow
+havering,2019-01-01,2019,367019,224.0,Upminster Bridge
+hillingdon,2019-01-01,2019,413405,211.0,West Ruislip
+hounslow,2019-01-01,2019,397052,158.0,Turnham Green
+islington,2019-01-01,2019,635328,128.0,Tufnell Park
+kensington and chelsea,2019-01-01,2019,1285331,117.0,West Brompton
+kingston upon thames,2019-01-01,2019,482032,153.0,
+lambeth,2019-01-01,2019,501861,227.0,Waterloo
+lewisham,2019-01-01,2019,402343,192.0,
+merton,2019-01-01,2019,512341,167.0,Wimbledon Park
+newham,2019-01-01,2019,358029,184.0,West Ham
+redbridge,2019-01-01,2019,420810,150.0,Woodford
+richmond upon thames,2019-01-01,2019,655056,162.0,
+southwark,2019-01-01,2019,500164,210.0,Southwark
+sutton,2019-01-01,2019,374145,185.0,
+tower hamlets,2019-01-01,2019,434143,236.0,Whitechapel
+waltham forest,2019-01-01,2019,435182,208.0,Walthamstow Central
+wandsworth,2019-01-01,2019,587609,304.0,Tooting Broadway
+westminster,2019-01-01,2019,959408,125.0,
