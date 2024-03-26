@@ -2554,7 +2554,30 @@ dataByArea.forEach(([area, values]) => {
         .style("border-radius", "8px")
         .style("margin-left", "78px")
         .html(`<h4>Data Processing</h4>
-         <p> The data processing involves transforming the CSV data into a structured JSON format, arranging it as an array of objects. To ensure uniformity and visual coherence across all generated graphs, a color property is being assigned to each geographical area. This ensures that each area consistently appears with the same color line in every graph, simplifying comparisons and enhancing the analysis of data trends. By maintaining a consistent color scheme throughout the graphs, it becomes easier to discern patterns and make insightful observations about the dataset.</p>`)
+         <p> The data processing involves transforming the CSV data into a structured JSON format, 
+         arranging it as an array of objects. To ensure uniformity and visual coherence across 
+         all generated graphs, a color property is being assigned to each London borough. 
+         This ensures that each borough consistently appears with the same color line in every graph, 
+         simplifying comparisons and enhancing the analysis of data trends. By maintaining a consistent 
+         color scheme throughout the graphs, it becomes easier to discern patterns and make insightful 
+         observations about the house prices in London over time.</p>
+         
+         <p>
+            The original data sources used for this data visualisation can be found at the following links:
+            <ul>
+                <li><a href="https://data.london.gov.uk/dataset/average-income-tax-payers-borough" target="_blank">https://data.london.gov.uk/dataset/average-income-tax-payers-borough</a></li>
+                <li><a href="https://www.kaggle.com/code/justinas/house-prices-in-london" target="_blank">https://www.kaggle.com/code/justinas/house-prices-in-london</a></li>
+            </ul>
+        </p>
+
+
+         <p>
+         To see how the original datasets were prepared to fit the purposes of this data visualisation, please check
+         out the Miro board under 
+
+         <a href="https://miro.com/app/board/uXjVNjGXNx0=/" target="_blank">Part 3: Implementation</a>
+         </p>
+         `)
 
 });
 
