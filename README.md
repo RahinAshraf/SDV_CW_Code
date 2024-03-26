@@ -6,6 +6,4 @@ This repository contains the following:
  - a folder "Data_management. This folder consists of:
      - a folder "Data_preparations" which contains the Jupyter notebook files of Python code that was used to prepare the data for use in this assignment.
      - a folder "Formulated_datasets" which are the datasets produced as output from the data preparation phase.
-     - a folder "Original_datasets" which are the datasets used as input to the data preparation phase. 
-
-T
+     - a folder "Original_datasets" which are the datasets used as input to the data preparation phase.
