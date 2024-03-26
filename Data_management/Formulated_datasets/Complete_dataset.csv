@@ -1,166 +1,166 @@
 ,area,Number of Individuals,Mean £,Median £,year,area1,average_price,houses_sold,Station
-0,barking and dagenham,62000,16200,15100,1999,barking and dagenham,64532,177.0,Upney
-1,barnet,161000,26800,18700,1999,barnet,126189,417.0,Woodside Park
-2,bexley,105000,20500,17200,1999,bexley,83064,292.0,
-3,brent,122000,20000,16500,1999,brent,105461,261.0,Willesden Junction
-4,bromley,163000,25100,18500,1999,bromley,112544,406.0,
-5,camden,85000,39000,20500,1999,camden,170961,208.0,West Hampstead
-6,city of london,10000,109800,40400,1999,croydon,91179,442.0,
-7,croydon,152000,21500,16700,1999,ealing,112914,371.0,West Acton
-8,ealing,130000,22800,16400,1999,enfield,94831,399.0,Southgate
-9,enfield,124000,21500,16100,1999,england,65766,59989.0,
-10,greenwich,86000,20700,16600,1999,greenwich,86685,270.0,North Greenwich
-11,hackney,79000,18700,14400,1999,hackney,99489,196.0,Manor House
-12,hammersmith and fulham,72000,34900,19900,1999,hammersmith and fulham,178179,198.0,Wood Lane
-13,haringey,124000,20600,15000,1999,haringey,107523,229.0,Wood Green
-14,harrow,96000,23300,16600,1999,harrow,118611,210.0,West Harrow
-15,havering,105000,20400,14800,1999,havering,89521,222.0,Upminster Bridge
-16,hillingdon,111000,21700,16100,1999,hillingdon,102147,335.0,West Ruislip
-17,hounslow,106000,20900,15200,1999,hounslow,101234,241.0,Turnham Green
-18,islington,69000,31100,19900,1999,islington,135270,220.0,Tufnell Park
-19,kensington and chelsea,73000,58200,18200,1999,kensington and chelsea,278269,292.0,West Brompton
-20,kingston-upon-thames,71000,28400,20900,1999,kingston upon thames,119773,215.0,
-21,lambeth,131000,20700,15400,1999,lambeth,106119,322.0,Waterloo
-22,lewisham,106000,18200,14900,1999,lewisham,77528,283.0,
-23,merton,92000,27900,19100,1999,merton,109274,268.0,Wimbledon Park
-24,newham,80000,15800,13300,1999,newham,69439,251.0,West Ham
-25,redbridge,96000,21700,17100,1999,redbridge,96338,297.0,Woodford
-26,richmond-upon-thames,86000,37300,20900,1999,richmond upon thames,174889,302.0,
-27,southwark,114000,20400,14600,1999,southwark,100115,284.0,Southwark
-28,sutton,93000,21000,16400,1999,sutton,94888,276.0,
-29,tower hamlets,59000,22900,14200,1999,tower hamlets,107464,273.0,Whitechapel
-30,waltham forest,91000,18500,15000,1999,waltham forest,78117,307.0,Walthamstow Central
-31,wandsworth,144000,29300,18100,1999,wandsworth,126280,452.0,Tooting Broadway
-32,westminster,96000,46400,17300,1999,westminster,188601,353.0,
-33,barking and dagenham,67000,19100,17000,2002,barking and dagenham,98713,216.0,Upney
-34,barnet,150000,32300,19700,2002,barnet,203249,501.0,Woodside Park
-35,bexley,114000,21500,17800,2002,bexley,124283,319.0,
-36,brent,116000,21700,16400,2002,brent,168671,315.0,Willesden Junction
-37,bromley,160000,27700,20100,2002,bromley,173150,445.0,
-38,camden,96000,43000,21700,2002,camden,290461,237.0,West Hampstead
-39,city of london,11000,78700,37000,2002,croydon,143108,455.0,
-40,croydon,166000,23400,18000,2002,ealing,178154,412.0,West Acton
-41,ealing,141000,25400,18900,2002,enfield,144678,440.0,Southgate
-42,enfield,121000,24100,18100,2002,england,96215,71678.0,
-43,greenwich,95000,22900,17000,2002,greenwich,134327,282.0,North Greenwich
-44,hackney,76000,21300,17300,2002,hackney,165007,185.0,Manor House
-45,hammersmith and fulham,86000,35800,20800,2002,hammersmith and fulham,280576,227.0,Wood Lane
-46,haringey,95000,26000,17100,2002,haringey,173396,272.0,Wood Green
-47,harrow,106000,26900,19400,2002,harrow,184582,246.0,West Harrow
-48,havering,124000,22700,18300,2002,havering,132721,260.0,Upminster Bridge
-49,hillingdon,118000,24000,18800,2002,hillingdon,156059,344.0,West Ruislip
-50,hounslow,105000,24500,18600,2002,hounslow,163947,275.0,Turnham Green
-51,islington,86000,36300,19100,2002,islington,226068,186.0,Tufnell Park
-52,kensington and chelsea,68000,72900,25400,2002,kensington and chelsea,407492,281.0,West Brompton
-53,kingston-upon-thames,79000,27900,20700,2002,kingston upon thames,189539,280.0,
-54,lambeth,119000,25900,18800,2002,lambeth,177905,340.0,Waterloo
-55,lewisham,113000,21400,17300,2002,lewisham,131763,428.0,
-56,merton,94000,31600,21200,2002,merton,180271,280.0,Wimbledon Park
-57,newham,96000,17300,15000,2002,newham,122669,369.0,West Ham
-58,redbridge,111000,24000,18700,2002,redbridge,153608,348.0,Woodford
-59,richmond-upon-thames,93000,39500,23100,2002,richmond upon thames,251202,265.0,
-60,southwark,111000,24600,17900,2002,southwark,173721,309.0,Southwark
-61,sutton,93000,23700,17800,2002,sutton,149153,298.0,
-62,tower hamlets,76000,28500,19300,2002,tower hamlets,170071,258.0,Whitechapel
-63,waltham forest,102000,20100,17200,2002,waltham forest,132999,330.0,Walthamstow Central
-64,wandsworth,143000,35700,22000,2002,wandsworth,211791,531.0,Tooting Broadway
-65,westminster,88000,56600,22800,2002,westminster,304679,373.0,
-66,barking and dagenham,78000,21300,18600,2008,barking and dagenham,194235,215.0,Upney
-67,barnet,173000,38700,22000,2008,barnet,344480,354.0,Woodside Park
-68,bexley,123000,26700,19800,2008,bexley,220086,252.0,
-69,brent,161000,24700,18300,2008,brent,300895,207.0,Willesden Junction
-70,bromley,181000,34400,23200,2008,bromley,293098,337.0,
-71,camden,107000,69800,26900,2008,camden,486659,217.0,West Hampstead
-72,city of london,10000,102000,58500,2008,croydon,248005,400.0,
-73,croydon,179000,28100,20900,2008,ealing,310173,336.0,West Acton
-74,ealing,169000,30000,20200,2008,enfield,256572,361.0,Southgate
-75,enfield,145000,28100,19900,2008,england,191750,56189.0,
-76,greenwich,118000,29900,20500,2008,greenwich,238450,251.0,North Greenwich
-77,hackney,93000,27900,20900,2008,hackney,308203,178.0,Manor House
-78,hammersmith and fulham,103000,48600,23600,2008,hammersmith and fulham,487907,187.0,Wood Lane
-79,haringey,124000,31900,19800,2008,haringey,313986,204.0,Wood Green
-80,harrow,120000,32400,22100,2008,harrow,305837,238.0,West Harrow
-81,havering,133000,27100,20800,2008,havering,244747,309.0,Upminster Bridge
-82,hillingdon,133000,27900,21800,2008,hillingdon,266873,309.0,West Ruislip
-83,hounslow,129000,29000,20400,2008,hounslow,272960,215.0,Turnham Green
-84,islington,105000,43300,24400,2008,islington,408031,205.0,Tufnell Park
-85,kensington and chelsea,74000,151000,31900,2008,kensington and chelsea,810781,186.0,West Brompton
-86,kingston-upon-thames,82000,38200,25200,2008,kingston upon thames,321799,159.0,
-87,lambeth,147000,33300,22200,2008,lambeth,307930,359.0,Waterloo
-88,lewisham,137000,27100,21000,2008,lewisham,241511,294.0,
-89,merton,113000,39400,22300,2008,merton,309345,208.0,Wimbledon Park
-90,newham,122000,21000,16500,2008,newham,236617,307.0,West Ham
-91,redbridge,128000,29100,21600,2008,redbridge,275150,318.0,Woodford
-92,richmond-upon-thames,104000,56900,29100,2008,richmond upon thames,430126,254.0,
-93,southwark,136000,36000,21900,2008,southwark,303543,255.0,Southwark
-94,sutton,100000,30000,22500,2008,sutton,257529,232.0,
-95,tower hamlets,103000,37400,21200,2008,tower hamlets,300654,272.0,Whitechapel
-96,waltham forest,121000,23200,18200,2008,waltham forest,249909,247.0,Walthamstow Central
-97,wandsworth,167000,49500,26100,2008,wandsworth,381421,370.0,Tooting Broadway
-98,westminster,111000,82600,29200,2008,westminster,546512,289.0,
-99,barking and dagenham,74000,25500,21800,2014,barking and dagenham,184884,127.0,Upney
-100,barnet,175000,45800,27100,2014,barnet,398384,410.0,Woodside Park
-101,bexley,122000,30200,24400,2014,bexley,224321,316.0,
-102,brent,147000,31200,22700,2014,brent,365190,232.0,Willesden Junction
-103,bromley,168000,40400,28100,2014,bromley,315709,520.0,
-104,camden,104000,79200,33100,2014,camden,695470,245.0,West Hampstead
-105,city of london,9000,144000,61100,2014,croydon,249311,455.0,
-106,croydon,176000,32600,25100,2014,ealing,364514,301.0,West Acton
-107,ealing,167000,35300,24600,2014,enfield,273452,326.0,Southgate
-108,enfield,137000,34400,25300,2014,england,188265,64587.0,
-109,greenwich,119000,34800,24600,2014,greenwich,276452,341.0,North Greenwich
-110,hackney,106000,37100,26000,2014,hackney,415053,169.0,Manor House
-111,hammersmith and fulham,92000,62000,30100,2014,hammersmith and fulham,666572,289.0,Wood Lane
-112,haringey,126000,39500,25800,2014,haringey,402646,243.0,Wood Green
-113,harrow,120000,37000,26100,2014,harrow,338590,233.0,West Harrow
-114,havering,124000,32100,24900,2014,havering,238220,324.0,Upminster Bridge
-115,hillingdon,139000,32300,25300,2014,hillingdon,282892,340.0,West Ruislip
-116,hounslow,129000,36800,24700,2014,hounslow,302920,257.0,Turnham Green
-117,islington,102000,56800,31000,2014,islington,548119,220.0,Tufnell Park
-118,kensington and chelsea,71000,158000,38700,2014,kensington and chelsea,1204771,280.0,West Brompton
-119,kingston-upon-thames,79000,43600,29100,2014,kingston upon thames,369306,232.0,
-120,lambeth,161000,41100,27300,2014,lambeth,395104,464.0,Waterloo
-121,lewisham,135000,32400,24900,2014,lewisham,289574,352.0,
-122,merton,106000,46900,27600,2014,merton,377855,273.0,Wimbledon Park
-123,newham,130000,25400,20200,2014,newham,234334,237.0,West Ham
-124,redbridge,131000,33900,25700,2014,redbridge,289684,308.0,Woodford
-125,richmond-upon-thames,104000,64600,35800,2014,richmond upon thames,512942,296.0,
-126,southwark,140000,41600,27700,2014,southwark,396213,323.0,Southwark
-127,sutton,102000,33600,25900,2014,sutton,269434,277.0,
-128,tower hamlets,121000,41800,26600,2014,tower hamlets,355235,430.0,Whitechapel
-129,waltham forest,128000,28200,22700,2014,waltham forest,279085,241.0,Walthamstow Central
-130,wandsworth,168000,59200,32900,2014,wandsworth,497300,576.0,Tooting Broadway
-131,westminster,102000,104000,35100,2014,westminster,855067,303.0,
-132,barking and dagenham,85000,29400,25700,2019,barking and dagenham,297181,119.0,Upney
-133,barnet,192000,51600,30700,2019,barnet,528639,291.0,Woodside Park
-134,bexley,126000,36000,28000,2019,bexley,338708,215.0,
-135,brent,155000,37800,26200,2019,brent,479106,126.0,Willesden Junction
-136,bromley,176000,48200,33700,2019,bromley,440624,280.0,
-137,camden,104000,96900,38200,2019,camden,867808,102.0,West Hampstead
-138,city of london,12000,128000,54200,2019,croydon,365096,271.0,
-139,croydon,184000,37800,29400,2019,ealing,483336,186.0,West Acton
-140,ealing,170000,42700,28200,2019,enfield,395616,202.0,Southgate
-141,enfield,145000,39500,28300,2019,england,244641,54134.0,
-142,greenwich,127000,44700,30100,2019,greenwich,385703,273.0,North Greenwich
-143,hackney,111000,47200,32400,2019,hackney,527573,155.0,Manor House
-144,hammersmith and fulham,95000,75900,35800,2019,hammersmith and fulham,722045,110.0,Wood Lane
-145,haringey,129000,48600,28300,2019,haringey,545524,158.0,Wood Green
-146,harrow,130000,41500,29500,2019,harrow,453365,169.0,West Harrow
-147,havering,130000,38100,29800,2019,havering,367019,224.0,Upminster Bridge
-148,hillingdon,145000,37300,28100,2019,hillingdon,413405,211.0,West Ruislip
-149,hounslow,136000,41700,27500,2019,hounslow,397052,158.0,Turnham Green
-150,islington,109000,66100,36400,2019,islington,635328,128.0,Tufnell Park
-151,kensington and chelsea,67000,185000,42100,2019,kensington and chelsea,1285331,117.0,West Brompton
-152,kingston-upon-thames,84000,50500,33500,2019,kingston upon thames,482032,153.0,
-153,lambeth,168000,49100,31900,2019,lambeth,501861,227.0,Waterloo
-154,lewisham,139000,41100,30100,2019,lewisham,402343,192.0,
-155,merton,112000,55300,30300,2019,merton,512341,167.0,Wimbledon Park
-156,newham,158000,31700,24600,2019,newham,358029,184.0,West Ham
-157,redbridge,138000,38500,28900,2019,redbridge,420810,150.0,Woodford
-158,richmond-upon-thames,104000,77400,38900,2019,richmond upon thames,655056,162.0,
-159,southwark,152000,53400,33500,2019,southwark,500164,210.0,Southwark
-160,sutton,102000,40200,30200,2019,sutton,374145,185.0,
-161,tower hamlets,140000,50100,32700,2019,tower hamlets,434143,236.0,Whitechapel
-162,waltham forest,139000,34900,27700,2019,waltham forest,435182,208.0,Walthamstow Central
-163,wandsworth,172000,72400,38900,2019,wandsworth,587609,304.0,Tooting Broadway
-164,westminster,98000,118000,39900,2019,westminster,959408,125.0,
+0,barking and dagenham,62000,16200,15100,1999,barking and dagenham,64532,177,Upney
+1,barnet,161000,26800,18700,1999,barnet,126189,417,Woodside Park
+2,bexley,105000,20500,17200,1999,bexley,83064,292,
+3,brent,122000,20000,16500,1999,brent,105461,261,Willesden Junction
+4,bromley,163000,25100,18500,1999,bromley,112544,406,
+5,camden,85000,39000,20500,1999,camden,170961,208,West Hampstead
+6,city of london,10000,109800,40400,1999,croydon,91179,442,
+7,croydon,152000,21500,16700,1999,ealing,112914,371,West Acton
+8,ealing,130000,22800,16400,1999,enfield,94831,399,Southgate
+9,enfield,124000,21500,16100,1999,england,65766,989,
+10,greenwich,86000,20700,16600,1999,greenwich,86685,270,North Greenwich
+11,hackney,79000,18700,14400,1999,hackney,99489,196,Manor House
+12,hammersmith and fulham,72000,34900,19900,1999,hammersmith and fulham,178179,198,Wood Lane
+13,haringey,124000,20600,15000,1999,haringey,107523,229,Wood Green
+14,harrow,96000,23300,16600,1999,harrow,118611,210,West Harrow
+15,havering,105000,20400,14800,1999,havering,89521,222,Upminster Bridge
+16,hillingdon,111000,21700,16100,1999,hillingdon,102147,335,West Ruislip
+17,hounslow,106000,20900,15200,1999,hounslow,101234,241,Turnham Green
+18,islington,69000,31100,19900,1999,islington,135270,220,Tufnell Park
+19,kensington and chelsea,73000,58200,18200,1999,kensington and chelsea,278269,292,West Brompton
+20,kingston-upon-thames,71000,28400,20900,1999,kingston upon thames,119773,215,
+21,lambeth,131000,20700,15400,1999,lambeth,106119,322,Waterloo
+22,lewisham,106000,18200,14900,1999,lewisham,77528,283,
+23,merton,92000,27900,19100,1999,merton,109274,268,Wimbledon Park
+24,newham,80000,15800,13300,1999,newham,69439,251,West Ham
+25,redbridge,96000,21700,17100,1999,redbridge,96338,297,Woodford
+26,richmond-upon-thames,86000,37300,20900,1999,richmond upon thames,174889,302,
+27,southwark,114000,20400,14600,1999,southwark,100115,284,Southwark
+28,sutton,93000,21000,16400,1999,sutton,94888,276,
+29,tower hamlets,59000,22900,14200,1999,tower hamlets,107464,273,Whitechapel
+30,waltham forest,91000,18500,15000,1999,waltham forest,78117,307,Walthamstow Central
+31,wandsworth,144000,29300,18100,1999,wandsworth,126280,452,Tooting Broadway
+32,westminster,96000,46400,17300,1999,westminster,188601,353,
+33,barking and dagenham,67000,19100,17000,2002,barking and dagenham,98713,216,Upney
+34,barnet,150000,32300,19700,2002,barnet,203249,501,Woodside Park
+35,bexley,114000,21500,17800,2002,bexley,124283,319,
+36,brent,116000,21700,16400,2002,brent,168671,315,Willesden Junction
+37,bromley,160000,27700,20100,2002,bromley,173150,445,
+38,camden,96000,43000,21700,2002,camden,290461,237,West Hampstead
+39,city of london,11000,78700,37000,2002,croydon,143108,455,
+40,croydon,166000,23400,18000,2002,ealing,178154,412,West Acton
+41,ealing,141000,25400,18900,2002,enfield,144678,440,Southgate
+42,enfield,121000,24100,18100,2002,england,96215,678,
+43,greenwich,95000,22900,17000,2002,greenwich,134327,282,North Greenwich
+44,hackney,76000,21300,17300,2002,hackney,165007,185,Manor House
+45,hammersmith and fulham,86000,35800,20800,2002,hammersmith and fulham,280576,227,Wood Lane
+46,haringey,95000,26000,17100,2002,haringey,173396,272,Wood Green
+47,harrow,106000,26900,19400,2002,harrow,184582,246,West Harrow
+48,havering,124000,22700,18300,2002,havering,132721,260,Upminster Bridge
+49,hillingdon,118000,24000,18800,2002,hillingdon,156059,344,West Ruislip
+50,hounslow,105000,24500,18600,2002,hounslow,163947,275,Turnham Green
+51,islington,86000,36300,19100,2002,islington,226068,186,Tufnell Park
+52,kensington and chelsea,68000,72900,25400,2002,kensington and chelsea,407492,281,West Brompton
+53,kingston-upon-thames,79000,27900,20700,2002,kingston upon thames,189539,280,
+54,lambeth,119000,25900,18800,2002,lambeth,177905,340,Waterloo
+55,lewisham,113000,21400,17300,2002,lewisham,131763,428,
+56,merton,94000,31600,21200,2002,merton,180271,280,Wimbledon Park
+57,newham,96000,17300,15000,2002,newham,122669,369,West Ham
+58,redbridge,111000,24000,18700,2002,redbridge,153608,348,Woodford
+59,richmond-upon-thames,93000,39500,23100,2002,richmond upon thames,251202,265,
+60,southwark,111000,24600,17900,2002,southwark,173721,309,Southwark
+61,sutton,93000,23700,17800,2002,sutton,149153,298,
+62,tower hamlets,76000,28500,19300,2002,tower hamlets,170071,258,Whitechapel
+63,waltham forest,102000,20100,17200,2002,waltham forest,132999,330,Walthamstow Central
+64,wandsworth,143000,35700,22000,2002,wandsworth,211791,531,Tooting Broadway
+65,westminster,88000,56600,22800,2002,westminster,304679,373,
+66,barking and dagenham,78000,21300,18600,2008,barking and dagenham,194235,215,Upney
+67,barnet,173000,38700,22000,2008,barnet,344480,354,Woodside Park
+68,bexley,123000,26700,19800,2008,bexley,220086,252,
+69,brent,161000,24700,18300,2008,brent,300895,207,Willesden Junction
+70,bromley,181000,34400,23200,2008,bromley,293098,337,
+71,camden,107000,69800,26900,2008,camden,486659,217,West Hampstead
+72,city of london,10000,102000,58500,2008,croydon,248005,400,
+73,croydon,179000,28100,20900,2008,ealing,310173,336,West Acton
+74,ealing,169000,30000,20200,2008,enfield,256572,361,Southgate
+75,enfield,145000,28100,19900,2008,england,191750,189,
+76,greenwich,118000,29900,20500,2008,greenwich,238450,251,North Greenwich
+77,hackney,93000,27900,20900,2008,hackney,308203,178,Manor House
+78,hammersmith and fulham,103000,48600,23600,2008,hammersmith and fulham,487907,187,Wood Lane
+79,haringey,124000,31900,19800,2008,haringey,313986,204,Wood Green
+80,harrow,120000,32400,22100,2008,harrow,305837,238,West Harrow
+81,havering,133000,27100,20800,2008,havering,244747,309,Upminster Bridge
+82,hillingdon,133000,27900,21800,2008,hillingdon,266873,309,West Ruislip
+83,hounslow,129000,29000,20400,2008,hounslow,272960,215,Turnham Green
+84,islington,105000,43300,24400,2008,islington,408031,205,Tufnell Park
+85,kensington and chelsea,74000,151000,31900,2008,kensington and chelsea,810781,186,West Brompton
+86,kingston-upon-thames,82000,38200,25200,2008,kingston upon thames,321799,159,
+87,lambeth,147000,33300,22200,2008,lambeth,307930,359,Waterloo
+88,lewisham,137000,27100,21000,2008,lewisham,241511,294,
+89,merton,113000,39400,22300,2008,merton,309345,208,Wimbledon Park
+90,newham,122000,21000,16500,2008,newham,236617,307,West Ham
+91,redbridge,128000,29100,21600,2008,redbridge,275150,318,Woodford
+92,richmond-upon-thames,104000,56900,29100,2008,richmond upon thames,430126,254,
+93,southwark,136000,36000,21900,2008,southwark,303543,255,Southwark
+94,sutton,100000,30000,22500,2008,sutton,257529,232,
+95,tower hamlets,103000,37400,21200,2008,tower hamlets,300654,272,Whitechapel
+96,waltham forest,121000,23200,18200,2008,waltham forest,249909,247,Walthamstow Central
+97,wandsworth,167000,49500,26100,2008,wandsworth,381421,370,Tooting Broadway
+98,westminster,111000,82600,29200,2008,westminster,546512,289,
+99,barking and dagenham,74000,25500,21800,2014,barking and dagenham,184884,127,Upney
+100,barnet,175000,45800,27100,2014,barnet,398384,410,Woodside Park
+101,bexley,122000,30200,24400,2014,bexley,224321,316,
+102,brent,147000,31200,22700,2014,brent,365190,232,Willesden Junction
+103,bromley,168000,40400,28100,2014,bromley,315709,520,
+104,camden,104000,79200,33100,2014,camden,695470,245,West Hampstead
+105,city of london,9000,144000,61100,2014,croydon,249311,455,
+106,croydon,176000,32600,25100,2014,ealing,364514,301,West Acton
+107,ealing,167000,35300,24600,2014,enfield,273452,326,Southgate
+108,enfield,137000,34400,25300,2014,england,188265,587,
+109,greenwich,119000,34800,24600,2014,greenwich,276452,341,North Greenwich
+110,hackney,106000,37100,26000,2014,hackney,415053,169,Manor House
+111,hammersmith and fulham,92000,62000,30100,2014,hammersmith and fulham,666572,289,Wood Lane
+112,haringey,126000,39500,25800,2014,haringey,402646,243,Wood Green
+113,harrow,120000,37000,26100,2014,harrow,338590,233,West Harrow
+114,havering,124000,32100,24900,2014,havering,238220,324,Upminster Bridge
+115,hillingdon,139000,32300,25300,2014,hillingdon,282892,340,West Ruislip
+116,hounslow,129000,36800,24700,2014,hounslow,302920,257,Turnham Green
+117,islington,102000,56800,31000,2014,islington,548119,220,Tufnell Park
+118,kensington and chelsea,71000,158000,38700,2014,kensington and chelsea,1204771,280,West Brompton
+119,kingston-upon-thames,79000,43600,29100,2014,kingston upon thames,369306,232,
+120,lambeth,161000,41100,27300,2014,lambeth,395104,464,Waterloo
+121,lewisham,135000,32400,24900,2014,lewisham,289574,352,
+122,merton,106000,46900,27600,2014,merton,377855,273,Wimbledon Park
+123,newham,130000,25400,20200,2014,newham,234334,237,West Ham
+124,redbridge,131000,33900,25700,2014,redbridge,289684,308,Woodford
+125,richmond-upon-thames,104000,64600,35800,2014,richmond upon thames,512942,296,
+126,southwark,140000,41600,27700,2014,southwark,396213,323,Southwark
+127,sutton,102000,33600,25900,2014,sutton,269434,277,
+128,tower hamlets,121000,41800,26600,2014,tower hamlets,355235,430,Whitechapel
+129,waltham forest,128000,28200,22700,2014,waltham forest,279085,241,Walthamstow Central
+130,wandsworth,168000,59200,32900,2014,wandsworth,497300,576,Tooting Broadway
+131,westminster,102000,104000,35100,2014,westminster,855067,303,
+132,barking and dagenham,85000,29400,25700,2019,barking and dagenham,297181,119,Upney
+133,barnet,192000,51600,30700,2019,barnet,528639,291,Woodside Park
+134,bexley,126000,36000,28000,2019,bexley,338708,215,
+135,brent,155000,37800,26200,2019,brent,479106,126,Willesden Junction
+136,bromley,176000,48200,33700,2019,bromley,440624,280,
+137,camden,104000,96900,38200,2019,camden,867808,102,West Hampstead
+138,city of london,12000,128000,54200,2019,croydon,365096,271,
+139,croydon,184000,37800,29400,2019,ealing,483336,186,West Acton
+140,ealing,170000,42700,28200,2019,enfield,395616,202,Southgate
+141,enfield,145000,39500,28300,2019,england,244641,134,
+142,greenwich,127000,44700,30100,2019,greenwich,385703,273,North Greenwich
+143,hackney,111000,47200,32400,2019,hackney,527573,155,Manor House
+144,hammersmith and fulham,95000,75900,35800,2019,hammersmith and fulham,722045,110,Wood Lane
+145,haringey,129000,48600,28300,2019,haringey,545524,158,Wood Green
+146,harrow,130000,41500,29500,2019,harrow,453365,169,West Harrow
+147,havering,130000,38100,29800,2019,havering,367019,224,Upminster Bridge
+148,hillingdon,145000,37300,28100,2019,hillingdon,413405,211,West Ruislip
+149,hounslow,136000,41700,27500,2019,hounslow,397052,158,Turnham Green
+150,islington,109000,66100,36400,2019,islington,635328,128,Tufnell Park
+151,kensington and chelsea,67000,185000,42100,2019,kensington and chelsea,1285331,117,West Brompton
+152,kingston-upon-thames,84000,50500,33500,2019,kingston upon thames,482032,153,
+153,lambeth,168000,49100,31900,2019,lambeth,501861,227,Waterloo
+154,lewisham,139000,41100,30100,2019,lewisham,402343,192,
+155,merton,112000,55300,30300,2019,merton,512341,167,Wimbledon Park
+156,newham,158000,31700,24600,2019,newham,358029,184,West Ham
+157,redbridge,138000,38500,28900,2019,redbridge,420810,150,Woodford
+158,richmond-upon-thames,104000,77400,38900,2019,richmond upon thames,655056,162,
+159,southwark,152000,53400,33500,2019,southwark,500164,210,Southwark
+160,sutton,102000,40200,30200,2019,sutton,374145,185,
+161,tower hamlets,140000,50100,32700,2019,tower hamlets,434143,236,Whitechapel
+162,waltham forest,139000,34900,27700,2019,waltham forest,435182,208,Walthamstow Central
+163,wandsworth,172000,72400,38900,2019,wandsworth,587609,304,Tooting Broadway
+164,westminster,98000,118000,39900,2019,westminster,959408,125,
